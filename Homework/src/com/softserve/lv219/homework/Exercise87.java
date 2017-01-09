@@ -3,7 +3,7 @@ import java.util.*;
 public class Exercise87 implements Executable {
    @Override
    public void execute(){
-	   Scanner sc=new Scanner(System.in);
+	   Scanner sc=ScanerSingleton.getScanner();
 	   int n,m;
 	   n=sc.nextInt();
 	   m=sc.nextInt();
@@ -16,8 +16,9 @@ public class Exercise87 implements Executable {
 		   sum+=n%10;
 		   n/=10;
 	   }
+	   sc.close();
+	   System.out.println("The result is:");
 	   System.out.println(sum);
 	   
-	
    }
 }
