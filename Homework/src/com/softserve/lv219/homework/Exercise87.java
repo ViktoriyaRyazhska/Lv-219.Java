@@ -16,8 +16,9 @@ public class Exercise87 implements Executable {
 		   sum+=n%10;
 		   n/=10;
 	   }
+	   sc.close();
+	   System.out.println("The result is:");
 	   System.out.println(sum);
 	   
-	
    }
 }
