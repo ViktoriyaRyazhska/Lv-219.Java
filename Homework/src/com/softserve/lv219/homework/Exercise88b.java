@@ -19,7 +19,6 @@ public class Exercise88b  implements Executable{
 	public void execute() {
 		
 		int number=123;
-		System.out.println("Reverse to");
 		System.out.println("Reverse to "+number +" is "+reverse(number));
 	}
 	
