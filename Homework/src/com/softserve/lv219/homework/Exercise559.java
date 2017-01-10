@@ -4,6 +4,9 @@ public class Exercise559 {
 
 	public void execute(){
 		int n=ScanerSingleton.getScanner().nextInt();
+		printMersieneNumbers(n);
+	}
+	void printMersieneNumbers(int n){
 		List<Integer> simples=new ArrayList<Integer>();
 		for(int i=1;i<n;++i){
 			if(isSimple(i)){
