@@ -11,7 +11,7 @@ public class Exercise88a implements Executable {
 	}
 	
 	
-	private static boolean containsDigit(int number, int digit)
+	private  boolean containsDigit(int number, int digit)
 	{
 		while(number>0)
 		{
@@ -24,7 +24,7 @@ public class Exercise88a implements Executable {
 	}
 	
 	
-	private static int pow(int number, int power)
+	private  int pow(int number, int power)
 	{
 		
 		
