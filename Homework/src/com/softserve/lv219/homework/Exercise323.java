@@ -7,14 +7,14 @@ public class Exercise323 implements Executable {
 		System.out.println("Enter n:");
 		printRelativlyPrimes(ScanerSingleton.getScanner().nextInt());
 	}
-	void printRelativlyPrimes(int n){
+	public void printRelativlyPrimes(int n){
 		for(int i=1;i<n;++i){
 			if(BCD(n,i)==1){
 				System.out.println(i);
 			}
 		}
 	}
-	int BCD(int a,int b){
+	public int BCD(int a,int b){
 		return (b==0) ? a: BCD(b,a%b);
 	}
 	
