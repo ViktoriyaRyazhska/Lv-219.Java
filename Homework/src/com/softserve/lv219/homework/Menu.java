@@ -34,6 +34,7 @@ public class Menu<Executable>  {
 		menu.put("ex88a", (Executable) new Exercise88a());
 		menu.put("243a", (Executable) new Exercise243a());
 		menu.put("ex88b", (Executable) new Exercise88b());
+		menu.put("ex322", (Executable) new Exercise322());
 		menu.put("exit", (Executable) new Exit());
 		
 		

@@ -3,7 +3,7 @@ package com.softserve.lv219.homework;
 public class Exercise88b  implements Executable{
 
 	
-	private static int reverse(int number)
+	private  int reverse(int number)
 	{
 		int reverseNumber=0;
 		while(number >0)

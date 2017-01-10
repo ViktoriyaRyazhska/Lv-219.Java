@@ -17,7 +17,7 @@ public class Exercise243a implements Executable{
 			{
 				if((i*i)+(j*j)==n)
 				{
-					System.out.println("X and y found" + " x="+i+" y="+j);
+					System.out.println("X and y found" + " x="+i+" y="+j); 
 					return;
 				}
 			}
