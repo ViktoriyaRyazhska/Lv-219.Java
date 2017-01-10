@@ -23,14 +23,24 @@ public class Menu<Executable>  {
 		menu.put("ex86b", (Executable) new Exercise86b());
 		menu.put("ex178d", (Executable) new Exercise178d());
 		menu.put("ex178e", (Executable) new Exercise178e());
+		menu.put("ex182", (Executable) new Exercise182());
 		menu.put("ex555", (Executable) new Exercise555());
 		menu.put("ex87_1", (Executable) new Exercise87_1());
+		menu.put("ex323_b", (Executable) new Exercise323_b());
 		menu.put("ex324", (Executable) new Exercise324());
 		menu.put("ex560", (Executable) new Exercise560());
 		menu.put("ex87", (Executable) new Exercise87());
 		menu.put("ex323", (Executable) new Exercise323());
+		menu.put("ex88a", (Executable) new Exercise88a());
+		menu.put("243a", (Executable) new Exercise243a());
+		menu.put("ex88b", (Executable) new Exercise88b());
+		menu.put("ex322", (Executable) new Exercise322());
+		menu.put("ex108", (Executable) new Exercise108());
+		menu.put("ex325", (Executable) new Exercise325());
+		menu.put("ex561", (Executable) new Exercise561());
 		menu.put("ex559", (Executable) new Exercise559());
 		menu.put("exit", (Executable) new Exit());
+		
 		
 	}
 	
