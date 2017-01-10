@@ -13,10 +13,18 @@ public class Exercise323_b implements Executable {
         naturalNumber = Integer.parseInt(ScanerSingleton.getScanner().nextLine());
         List<Integer> allDividers = new ArrayList<Integer>();
 
-        for (int i = 2; i <= naturalNumber/2; i++)
+        for (int i = 1; i <= naturalNumber/2; i++)
         {
             if (naturalNumber % i == 0)
                 allDividers.add(i);
+        }
+
+        if (allDividers.size() == 1) {
+            System.out.println("All mutually prime numbers: ");
+            for (int i = 2; i < naturalNumber; i++) {
+                System.out.print(i + " ");
+            }
+            return;
         }
 
         for (int i = 2; i < naturalNumber; i++)
