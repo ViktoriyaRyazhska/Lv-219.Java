@@ -7,18 +7,24 @@ public class Exercise87 implements Executable {
 	   int n,m;
 	   n=sc.nextInt();
 	   m=sc.nextInt();
+	   
+	   sc.close();
+	   System.out.println("The result is:");
+	   System.out.println(sumOfDigits(n, m));
+	   
+   }
+   public int sumOfDigits(int n,int m){
 	   if(Integer.toString(n).length()<m){
 		   System.out.print("Wrong input!");
-		   return;
+		   return 0;
 	   }
 	   int sum=0;
 	   for(int i=0;i<m;++i){
 		   sum+=n%10;
 		   n/=10;
 	   }
-	   sc.close();
-	   System.out.println("The result is:");
-	   System.out.println(sum);
 	   
+	  
+	   return sum;
    }
 }
