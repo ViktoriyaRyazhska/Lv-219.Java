@@ -27,7 +27,7 @@ public class Exercise87_1 implements Executable  {
 
     }
 
-    private int countSum(int n, int m) {
+    public int countSum(int n, int m) {
         int sum = 0;
         char[] ar = ("" + n).toCharArray();
         if (ar.length < m) {

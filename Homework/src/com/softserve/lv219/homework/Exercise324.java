@@ -40,7 +40,7 @@ public class Exercise324 implements Executable{
 
 
     }
-    private int gcdEvklid (int a, int b){
+   public int gcdEvklid (int a, int b){
         int tmp;
         while (b !=0) {
             tmp = a%b;
