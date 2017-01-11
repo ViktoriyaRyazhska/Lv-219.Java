@@ -29,18 +29,20 @@ public class Menu<Executable>  {
 		menu.put("ex323_b", (Executable) new Exercise323_b());
 		menu.put("ex324", (Executable) new Exercise324());
 		menu.put("ex560", (Executable) new Exercise560());
+		menu.put("ex560_b", (Executable) new Exercise560_b());
 		menu.put("ex87", (Executable) new Exercise87());
 		menu.put("ex323", (Executable) new Exercise323());
 		menu.put("ex88a", (Executable) new Exercise88a());
 		menu.put("243a", (Executable) new Exercise243a());
 		menu.put("ex88b", (Executable) new Exercise88b());
 		menu.put("ex322", (Executable) new Exercise322());
+		menu.put("ex108", (Executable) new Exercise108());
+		menu.put("ex325", (Executable) new Exercise325());
+		menu.put("ex561", (Executable) new Exercise561());
+		menu.put("ex559", (Executable) new Exercise559());
 		menu.put("exit", (Executable) new Exit());
 		
 		
 	}
 	
-	
-	
-
 }

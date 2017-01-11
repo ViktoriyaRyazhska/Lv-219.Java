@@ -9,7 +9,7 @@ public class Exercise87_1 implements Executable  {
             Integer n = Integer.parseInt(ScanerSingleton.getScanner().nextLine());
             System.out.println("\nPlease, enter 'm' number");
             Integer m = Integer.parseInt(ScanerSingleton.getScanner().nextLine());
-            if(n<0||m<0) throw new Exception();
+            if((n<0)||(m<0)) throw new Exception();
             System.out.println("The sum of "+m+" last digits of the "+n+ " number"+" = "+countSum(n,m));
 
         } catch (NumberFormatException e) {
