@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Exercise323_b implements Executable {
+
     @Override
     public void execute()
     {
@@ -13,7 +14,7 @@ public class Exercise323_b implements Executable {
         naturalNumber = Integer.parseInt(ScanerSingleton.getScanner().nextLine());
         List<Integer> allDividers = new ArrayList<Integer>();
 
-        for (int i = 1; i <= naturalNumber/2; i++)
+        for (int i = 1; i <= naturalNumber / 2; i++)
         {
             if (naturalNumber % i == 0)
                 allDividers.add(i);
@@ -33,7 +34,7 @@ public class Exercise323_b implements Executable {
             {
                 if (i % allDividers.get(j) == 0)
                     break;
-                else if (j == allDividers.size()-1)
+                else if (j == allDividers.size() - 1)
                     allMutuallyPrimeNumbers.add(i);
             }
         }

@@ -18,7 +18,7 @@ public class Exercise182 implements Executable
 
         for (int i = 0; i < numberOfIntegers; i++)
         {
-            System.out.println("Enter your integer #"+(i+1)+"");
+            System.out.println("Enter your integer #" + (i + 1)+ "");
             listOfIntegers.add(Integer.parseInt(ScanerSingleton.getScanner().nextLine()));
         }
         for (int i = 0; i < listOfIntegers.size(); i++)
@@ -29,7 +29,7 @@ public class Exercise182 implements Executable
                 sum += listOfIntegers.get(i);
             }
         }
-        System.out.println("Quantity = "+quantity+"");
-        System.out.println("Sum = "+sum+"");
+        System.out.println("Quantity = "+ quantity+ "");
+        System.out.println("Sum = "+ sum+ "");
     }
 }
