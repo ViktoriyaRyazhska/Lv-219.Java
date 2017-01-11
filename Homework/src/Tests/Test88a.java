@@ -21,7 +21,7 @@ public class Test88a {
 
 
 	@AfterClass
-	public void tearDownAfterClass() throws Exception {
+	public static void tearDownAfterClass() throws Exception {
 		ex88a=null;
 	}
 
