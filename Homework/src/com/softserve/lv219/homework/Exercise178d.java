@@ -1,32 +1,46 @@
+/**
+ * com.softserve.lv219.homework is a group of classes for exercises solving.
+ */
 package com.softserve.lv219.homework;
 
-import java.util.Random;
+/**
+ * @author Nazar.
+ */
 
 public class Exercise178d implements Executable {
-	
+
 	@Override
 	public void execute() {
-		int [] mas = new int[99];
-		int k = 0;
-		int n, gn;
-		mas[0] = 0;
-		Random generator = new Random();
-	
-		n = generator.nextInt(10)+1;
-	
-		for(int i = 1; i < n; i++) {
-			gn = generator.nextInt(5);
-			mas[i] = mas[0] + gn;
+		
+		int amount = 0;
+
+		System.out.println("\nEnter number of members for sequence:");
+		int[] array = new int[Integer.parseInt(ScanerSingleton.getScanner().nextLine())];
+
+		array[0] = 0;
+
+		System.out.println("\nEnter " + (array.length - 1) + " members for sequence:");
+
+		for (int i = 1; i < array.length; i++) {			
+			System.out.print("Index ¹ " + i + ": ");
+			array[i] = Integer.parseInt(ScanerSingleton.getScanner().nextLine());			
 		}
-	
-		for(int i = 1; i < n; i++) {
-			if(mas[i] < (((mas[i-1]) + (mas[i+1]))/2)) {
-				k++;
+
+		for (int i = 1; i < array.length - 1; i++) {
+			if (array[i] < calc(array[i - 1], array[i + 1])) {
+				amount++;
 			}
 		}
-		System.out.println("Array of numbers:");
-		for(int i = 0; i < n; i++)
-			System.out.print(mas[i] + " ");
-		System.out.println("\nAmount: " + k);
+		
+		System.out.println("Sequence of numbers:");
+		for (int i = 0; i < array.length; i++) {
+			System.out.print(array[i] + " ");
+		}
+		System.out.println("\nAmount: " + amount);
 	}
+	
+	public static int calc(int a, int b) {
+		return ((a + b) / 2);
+	}
+	
 }

@@ -1,32 +1,42 @@
 package com.softserve.lv219.homework;
 
-import java.util.Random;
-
 public class Exercise178e implements Executable {
 	
 	@Override
 	public void execute() {
-		int [] mas = new int[99];
-		int k = 0;
-		int n, gn;
-		mas[0] = 0;
-		Random generator = new Random();
 		
-		n = generator.nextInt(10)+1;
-		
-		for(int i = 1; i < n; i++) {
-			gn = generator.nextInt(5);
-			mas[i] = mas[0] + gn;
+		int amount = 0;
+	
+		System.out.println("\nEnter number of members for sequence:");
+		int [] array = new int[Integer.parseInt(ScanerSingleton.getScanner().nextLine())];
+	
+		array[0] = 0;
+			
+		System.out.println("\nEnter " + (array.length - 1) + " members for sequence:");
+		for(int i = 1; i < array.length; i++) {
+			System.out.print("Index ¹ " + i + ": ");
+			array[i] = Integer.parseInt(ScanerSingleton.getScanner().nextLine());
 		}
-		
-		for(int i = 1; i < n; i++) {
-				if(mas[i] < (2 ^ n) || mas[i] < ((n - 1) * n)) {
-					k++;
+	
+		for(int i = 1; i < array.length; i++) {
+			if(array[i] < toPower(2, array.length) || array[i] < mul(array.length - 1, array.length)) {
+				amount++;
 			}
 		}
-		System.out.println("Array of numbers:");
-		for(int i = 0; i < n; i++)
-		System.out.print(mas[i] + " ");
-		System.out.println("\nAmount: " + k);
+		
+		System.out.println("Sequence of numbers:");
+		for(int i = 0; i < array.length; i++) {
+			System.out.print(array[i] + " ");
+		}
+		System.out.println("\nAmount: " + amount);
 	}
+	
+	public static double toPower(int a, int b) {
+		return Math.pow(a, b);		
+	}
+	
+	public static int mul(int a, int b) {
+		return (a * b);		
+	}
+	
 }
