@@ -35,7 +35,7 @@ public class Exercise88a implements Executable {
      * specified digit
      * @return true if number contains the specified digit
      */
-    private boolean containsDigit(int number, final int digit) {
+    public boolean containsDigit(int number, final int digit) {
         while (number > 0) {
             if (number % 10 == digit) {
                 return true;
@@ -53,7 +53,7 @@ public class Exercise88a implements Executable {
      * @param   number  the base
      * @param   power   the exponent
      */
-    private int pow(int number, final int power) {
+    public int pow(int number, final int power) {
 
         for (int i = 1; i < power; i++) {
             number *= number;

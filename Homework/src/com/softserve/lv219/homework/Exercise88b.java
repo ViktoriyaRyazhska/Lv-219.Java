@@ -33,7 +33,7 @@ public class Exercise88b implements Executable {
      * 
      * @return the reversed number
      */
-    private int reverse(int number) {
+    public int reverse(int number) {
 
         int reverseNumber = 0;
         while (number > 0) {
