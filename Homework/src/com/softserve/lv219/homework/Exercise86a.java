@@ -31,14 +31,14 @@ public class Exercise86a implements Executable {
 	 * @return amount of digits in number.
 	 */
 	public int getNumbersCount(int number) {
-		int nuberExperimental = number;
+		int nuberExperimental=number;
 		int numberOfDigits = 0;
 		boolean end = false;
 		while (!end) {
 			numberOfDigits++;
-			nuberExperimental /= 10;
-			if (nuberExperimental == 0) {
-				end = true;
+			nuberExperimental/=10;
+			if (nuberExperimental==0) {
+				end=true;
 			}
 		}
 		return numberOfDigits;
@@ -46,3 +46,4 @@ public class Exercise86a implements Executable {
 	}
 
 }
+
