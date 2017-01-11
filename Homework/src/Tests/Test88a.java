@@ -2,13 +2,10 @@ package Tests;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.softserve.lv219.homework.Exercise107;
 import com.softserve.lv219.homework.Exercise88a;
 
 public class Test88a {
