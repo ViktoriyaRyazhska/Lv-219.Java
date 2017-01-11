@@ -29,6 +29,7 @@ public class Menu<Executable>  {
 		menu.put("ex323_b", (Executable) new Exercise323_b());
 		menu.put("ex324", (Executable) new Exercise324());
 		menu.put("ex560", (Executable) new Exercise560());
+		menu.put("ex560_b", (Executable) new Exercise560_b());
 		menu.put("ex87", (Executable) new Exercise87());
 		menu.put("ex323", (Executable) new Exercise323());
 		menu.put("ex88a", (Executable) new Exercise88a());
@@ -44,7 +45,4 @@ public class Menu<Executable>  {
 		
 	}
 	
-	
-	
-
 }
