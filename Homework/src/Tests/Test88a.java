@@ -16,19 +16,17 @@ public class Test88a {
 		ex88a = new Exercise88a();
 	}
 
-
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		ex88a=null;
+		ex88a = null;
 	}
 
 	@Test
 	public void testPow() {
-		assertEquals(ex88a.pow(2, 2),4);
-		assertEquals(ex88a.pow(1, 56),1);
-
+		assertEquals(ex88a.pow(2, 2), 4);
+		assertEquals(ex88a.pow(1, 56), 1);
 	}
-	
+
 	@Test
 	public void testContainsDigit() {
 		assertTrue(ex88a.containsDigit(123, 1));
