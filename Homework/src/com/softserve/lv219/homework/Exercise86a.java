@@ -17,7 +17,7 @@ public class Exercise86a implements Executable {
 
 	}
 
-	private int getNumbersCount(int number) {
+	public int getNumbersCount(int number) {
 		int nuberExperimental=number;
 		int numberOfDigits = 0;
 		boolean end = false;
