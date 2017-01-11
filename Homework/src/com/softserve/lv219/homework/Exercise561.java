@@ -38,7 +38,7 @@ public class Exercise561 implements Executable {
 			}
 	}
 /*
- * verify allowability of value
+ * verifies allowability of value
  * @return true if value is greater than 0,
  * otherwise - false
  * */

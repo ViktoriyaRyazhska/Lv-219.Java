@@ -15,7 +15,7 @@ public class Exercise108 implements Executable {
 	@Override
 	public void execute() {
 
-		System.out.println("This method will find min value of 2^n which is bigger than inputed value");
+		System.out.println("This programme will find min value of 2^n which is bigger than inputed value");
 		System.out.println("Enter number");
 		
 		int inputedValue=0;
@@ -38,7 +38,7 @@ public class Exercise108 implements Executable {
 	}
 	
 	 /*
-	  *  verify allowability of value
+	  *  verifies allowability of value
       *  @return true if value is greater than 0,
       *  otherwise - false
       *  */
