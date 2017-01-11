@@ -1,25 +1,27 @@
 package com.softserve.lv219.homework;
 
-import java.util.Scanner;
 
 public class Exercise107 implements Executable {
-	private static final int K = 4;
-	private int result = 0;
-	private int n = 0;
+	private static final int N = 4;
 	@Override
 	public void execute(){
-		this.result = 0;
-		Scanner sc = ScanerSingleton.getScanner();
-		n = sc.nextInt();
-		System.out.println(calcK(n));
+		System.out.println("Enter your n - number.\n4^k < n.\nThis program will return - k.");
+		try {
+			int n = Integer.parseInt(ScanerSingleton.getScanner().nextLine());
+			if(1 >= n) throw new Exception();
+			System.out.println("k = "+findK(n));
+		} catch (Exception e) {
+			System.out.println("Your number have to be bigger than 1");
+		}
 		
 	}
 
-	private int calcK(int n)  {
-		while (Math.pow(K, result) < n) {
-			result++;
+	public int findK(int n) {
+		int k = 0;
+		
+		while(Math.pow(N, k) < n ) {
+			k++;
 		}
-		return result-1;
+		return k-1;
 	}
-
 }
