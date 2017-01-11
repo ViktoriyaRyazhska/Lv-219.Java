@@ -3,39 +3,77 @@ package com.softserve.lv219.homework;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Scanner;
 
+/**
+ * This class performs 325 task of the book
+ * 
+ * @author Yura Malyi
+ * @version 1.0
+ * @since January 2017
+ */
 public class Exercise325 implements Executable {
-	
-	@Override
+
 	public void execute() {
 
-		System.out.println("This method will find primal dividers of inputed number");
+		System.out.println("This programme will find primal dividers of inputed number");
 		System.out.println("Enter number");
-		List<Integer> con = new ArrayList();
 
+		List<Integer> primalDividersArray = new ArrayList();
+		int inputedValue = 0;
 		try {
-			int a = ScanerSingleton.getScanner().nextInt();
-			if (a > 0) {
-
-				for (int i = 2; i < a; i++) {
-					if (a % i == 0) {
-						System.out.println("This number haven't any primal dividers");
-						break;
-					} else {
-						con.add(1);
-						con.add(a);
-						break;
-					}
-				}
-
-			} else
-				System.out.println("Only numbers above zero are permitted");
-
-			for (Integer t : con)
-				System.out.println(t);
-		} catch (InputMismatchException e) {
+			inputedValue = Integer.parseInt(ScanerSingleton.getScanner().nextLine());
+		} catch (Exception e) {
 			System.out.println("Only numbers are permitted");
+			execute();
+		}
+		boolean guard = check(inputedValue);
+		if (guard) {
+			defineValues(inputedValue, primalDividersArray);
+		} else {
+			System.out.println("Only numbers greate than zero are permitted");
+			execute();
 		}
 
+		for (Integer arrayRunner : primalDividersArray) {
+			System.out.println(arrayRunner);
+		}
 	}
+
+	/*
+	 * verifies allowability of value
+	 * 
+	 * @return true if value is greater than 0, otherwise - false
+	 */
+	public static boolean check(int value) {
+		if (value > 0) {
+			return true;
+		}
+		return false;
+	}
+
+	/*
+	 * difines primal dividers of inputed value
+	 * 
+	 * @return List<Integer> with primal dividers
+	 */
+	public static List<Integer> defineValues(int value, List<Integer> container) {
+
+		for (int counter = 2; counter < value; counter++) {
+			if (value % counter == 0) {
+				message();
+				break;
+			} else {
+				container.add(1);
+				container.add(value);
+				break;
+			}
+		}
+		return container;
+	}
+
+	static void message() {
+		System.out.println("This number haven't any primal dividers");
+	}
+
 }
