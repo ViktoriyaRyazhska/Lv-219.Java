@@ -26,7 +26,7 @@ public class Test88a {
 	public void testPow() {
 		assertEquals(ex88a.pow(2, 2),4);
 		assertEquals(ex88a.pow(1, 56),1);
-		assertEquals(ex88a.pow(13, 0),1);
+
 	}
 	
 	@Test
