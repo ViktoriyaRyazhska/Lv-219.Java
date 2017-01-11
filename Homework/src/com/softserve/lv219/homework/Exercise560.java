@@ -3,7 +3,7 @@ package com.softserve.lv219.homework;
 import java.util.ArrayList;
 
 public class Exercise560 implements Executable {
-    private int div(int number){
+    public int div(int number){
         int sum = 0;
         for (int i = 1; i < number; i++) {
             sum += (number % i) == 0 ? i : 0;
