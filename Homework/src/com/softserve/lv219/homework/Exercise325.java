@@ -1,6 +1,7 @@
 package com.softserve.lv219.homework;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -51,4 +52,7 @@ public class Exercise325 implements Executable {
 		}
 		return con;
 	}
+
+	
 }
+

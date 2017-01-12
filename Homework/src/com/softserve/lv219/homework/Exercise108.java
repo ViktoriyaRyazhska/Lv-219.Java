@@ -2,7 +2,7 @@
 package com.softserve.lv219.homework;
 
 
-
+import java.util.InputMismatchException;
 /**
  * This class performs 108 task of the book
  * 
@@ -42,7 +42,7 @@ public class Exercise108 implements Executable {
       *  @return true if value is greater than 0,
       *  otherwise - false
       *  */
-	static boolean guard(int value){
+	public static boolean guard(int value){
 		if(value>0) {
 		return true;
 		}
@@ -50,9 +50,10 @@ public class Exercise108 implements Executable {
 	}
 	
 /*
- * @return min power in which 2 is greater than inputedValue
+ * 
+ @return min power in which 2 is greater than inputedValue
  */
-	double calcPower(int inputedValue, double powerCounter) {
+	public double calcPower(int inputedValue, double powerCounter) {
 
 		while (Math.pow(2, powerCounter) <= inputedValue) {
 			powerCounter += 0.1;
