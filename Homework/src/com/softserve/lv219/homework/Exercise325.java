@@ -1,6 +1,7 @@
 package com.softserve.lv219.homework;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -38,7 +39,7 @@ public class Exercise325 implements Executable {
 			System.out.println(arrayRunner);
 		}
 	}
-	
+
 	/*
 	 * verifies allowability of value
 	 * 
@@ -60,7 +61,7 @@ public class Exercise325 implements Executable {
 
 		for (int counter = 2; counter < value; counter++) {
 			if (value % counter == 0) {
-				System.out.println("This number haven't any primal dividers");
+				message();
 				break;
 			} else {
 				container.add(1);
@@ -70,4 +71,9 @@ public class Exercise325 implements Executable {
 		}
 		return container;
 	}
+
+	static void message() {
+		System.out.println("This number haven't any primal dividers");
+	}
+
 }
