@@ -28,7 +28,7 @@ public class Exercise561 implements Executable {
 			boolean guard = checkValue(inputedValue);
 			if (guard) {
 				List<Integer> finalArray = new ArrayList<>();
-				finalArray = method(inputedValue, finalArray);
+				finalArray = method(inputedValue);
 				for (Integer arrayRunner : finalArray) {
 					System.out.println(arrayRunner);
 				}
@@ -54,8 +54,8 @@ public class Exercise561 implements Executable {
  * similar digits
  * @return ArrayList what include proper numbers
  * */
-	static List<Integer> method(int inputedValue, List<Integer> container) {
-		
+	static List<Integer> method(int inputedValue) {
+		List<Integer> container = new ArrayList<>();
 			for (int counter = 1; counter < inputedValue; inputedValue--) {
 				if (inputedValue <= 100) {
 					int ivSquare = inputedValue * inputedValue;
