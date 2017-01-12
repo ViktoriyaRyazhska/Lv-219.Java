@@ -20,7 +20,7 @@ public class Exercise561 implements Executable {
 		int inputedValue=0;
 		try {
 			inputedValue = Integer.parseInt(ScanerSingleton.getScanner().nextLine());
-		} catch (Exception e) {
+		} catch (NumberFormatException e) {
 				System.out.println("Only numbers are permitted");
 				execute();
 			}
