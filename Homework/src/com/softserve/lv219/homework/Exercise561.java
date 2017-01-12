@@ -1,6 +1,7 @@
 package com.softserve.lv219.homework;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,7 +21,7 @@ public class Exercise561 implements Executable {
 		int inputedValue=0;
 		try {
 			inputedValue = Integer.parseInt(ScanerSingleton.getScanner().nextLine());
-		} catch (Exception e) {
+		} catch (NumberFormatException e) {
 				System.out.println("Only numbers are permitted");
 				execute();
 			}
@@ -41,7 +42,7 @@ public class Exercise561 implements Executable {
  * @return true if value is greater than 0,
  * otherwise - false
  * */
-	static boolean checkValue(int value) {
+	public static boolean checkValue(int value) {
 		if (value > 0) {
 			return true;
 		} else {
