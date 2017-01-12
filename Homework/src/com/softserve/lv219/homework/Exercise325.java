@@ -1,9 +1,8 @@
 package com.softserve.lv219.homework;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
-import java.util.Scanner;
+
 
 /**
  * This class performs 325 task of the book
@@ -17,7 +16,7 @@ public class Exercise325 implements Executable {
 	public void execute() {
 
 		int inputedValue = 0;
-		List<Integer> dividersContainer;
+		List<Integer> dividersContainer=new ArrayList<>();;
 		System.out.print("Enter a positive number: ");
 		
 		try {
@@ -27,8 +26,8 @@ public class Exercise325 implements Executable {
 			execute();
 		}
 		if (inputedValue > 0) {
-			dividersContainer = new ArrayList<>();
-			primalArray(inputedValue, dividersContainer);
+		
+					dividersContainer = primalArray(inputedValue);
 			for (Integer arrayRunner : dividersContainer) {
 				System.out.println(arrayRunner);
 			}
@@ -38,8 +37,9 @@ public class Exercise325 implements Executable {
 		}
 	}
 
-	public static List<Integer> primalArray(int value, List<Integer> con) {
+	public static List<Integer> primalArray(int value) {
 		int count;
+		List<Integer> con = new ArrayList<>();
 		for (int i = 2; i <= value; i++) {
 			count = 0;
 			while (value % i == 0) {
