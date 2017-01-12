@@ -54,11 +54,13 @@ public class Exercise88a implements Executable {
      * @param   power   the exponent
      */
     public int pow(int number, final int power) {
-
-        for (int i = 1; i < power; i++) {
-            number *= number;
+        
+        
+        int result=1;
+        for (int i = 1; i <=power; i++) {
+            result *= number;
         }
-        return number;
+        return result;
     }
 
 }
