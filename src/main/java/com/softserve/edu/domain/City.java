@@ -1,4 +1,4 @@
-package com.softserve.edu.entity;
+package com.softserve.edu.domain;
 
 import java.util.HashSet;
 import java.util.Set;

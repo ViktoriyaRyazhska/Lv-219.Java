@@ -1,4 +1,4 @@
-package com.softserve.edu.entity;
+package com.softserve.edu.domain;
 
 import javax.persistence.*;
 import java.util.Date;
