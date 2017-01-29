@@ -14,4 +14,3 @@ public interface GenericDao<E> {
 
     public void delete(E element);
 }
-

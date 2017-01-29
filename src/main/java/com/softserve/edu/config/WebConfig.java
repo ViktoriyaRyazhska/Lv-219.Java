@@ -6,7 +6,6 @@ import javax.sql.DataSource;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -36,7 +35,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Bean(name = "viewResolver")
     public InternalResourceViewResolver getViewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("/WEB-INF/views/");
+        viewResolver.setPrefix("/WEB-INF/pages/");
         viewResolver.setSuffix(".jsp");
         return viewResolver;
     }
@@ -61,7 +60,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return properties;
     }
 
-    @Autowired
     @Bean(name = "sessionFactory")
     public LocalSessionFactoryBean getSessionFactory(DataSource ds) {
         LocalSessionFactoryBean sf = new LocalSessionFactoryBean();
@@ -71,7 +69,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return sf;
     }
 
-    @Autowired
     @Bean(name = "transactionManager")
     public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
         HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
