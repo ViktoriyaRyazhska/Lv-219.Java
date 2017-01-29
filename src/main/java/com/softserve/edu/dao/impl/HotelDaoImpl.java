@@ -26,6 +26,7 @@ public class HotelDaoImpl extends GenericDaoImpl<Hotel> implements HotelDao {
 
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public Set<Hotel> findHotels(String city) {
         Set<Hotel> hotels = null;
@@ -52,6 +53,7 @@ public class HotelDaoImpl extends GenericDaoImpl<Hotel> implements HotelDao {
 
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public List<Object[]> findFree(String city, Date date) {
 
@@ -67,6 +69,7 @@ public class HotelDaoImpl extends GenericDaoImpl<Hotel> implements HotelDao {
         return list;
     }
 
+    @SuppressWarnings("rawtypes")
     @Override
     public int findCountOfClients(String hotel) {
         int count = 0;
@@ -79,6 +82,7 @@ public class HotelDaoImpl extends GenericDaoImpl<Hotel> implements HotelDao {
         return count;
     }
 
+    @SuppressWarnings("rawtypes")
     @Override
     public int averageTimeOfBooking(String hotel) {
         int days = 0;
