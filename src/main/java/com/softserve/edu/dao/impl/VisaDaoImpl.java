@@ -3,12 +3,17 @@ package com.softserve.edu.dao.impl;
 import java.util.List;
 import java.util.Set;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Query;
+import org.springframework.stereotype.Repository;
 
 import com.softserve.edu.dao.VisaDao;
 import com.softserve.edu.domain.Client;
 import com.softserve.edu.domain.Visa;
 
+@Repository
+@Transactional
 public class VisaDaoImpl extends GenericDaoImpl<Visa> implements VisaDao {
 
     @SuppressWarnings("unchecked")
