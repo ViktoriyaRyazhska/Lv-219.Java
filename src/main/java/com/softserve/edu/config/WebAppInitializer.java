@@ -1,22 +1,29 @@
 package com.softserve.edu.config;
 
-import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRegistration;
 
-public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.context.ContextLoaderListener;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.servlet.DispatcherServlet;
 
-    @Override
-    protected Class<?>[] getRootConfigClasses() {
-        return new Class[] { WebConfig.class };
-    }
-
-    @Override
-    protected Class<?>[] getServletConfigClasses() {
-        return null;
-    }
+public class WebAppInitializer implements WebApplicationInitializer {
 
     @Override
-    protected String[] getServletMappings() {
-        return new String[] { "/" };
+    public void onStartup(ServletContext container) throws ServletException {
+
+        AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
+        rootContext.register(WebConfig.class);
+        // Manage the lifecycle of the root application context
+        container.addListener(new ContextLoaderListener(rootContext));
+
+        DispatcherServlet dispatcherServlet = new DispatcherServlet(rootContext);
+        // Register and map the dispatcher servlet
+        ServletRegistration.Dynamic registration = container.addServlet("dispatcherServlet", dispatcherServlet);
+        registration.setLoadOnStartup(1);
+        registration.addMapping("/");
     }
 
 }

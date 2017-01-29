@@ -1,19 +1,19 @@
-package com.edu.softserve.service.impl;
+package com.softserve.edu.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.softserve.edu.dao.impl.BookingDaoImpl;
+import com.softserve.edu.dao.BookingDao;
 import com.softserve.edu.domain.Booking;
 import com.softserve.edu.service.BookingService;
 
 @Service
-public class BookingSeviceImpl implements BookingService {
+public class BookingServiceImpl implements BookingService {
 
     @Autowired
-    private BookingDaoImpl bookingDao;
+    private BookingDao bookingDao;
 
     @Override
     public void add(Booking booking) {
