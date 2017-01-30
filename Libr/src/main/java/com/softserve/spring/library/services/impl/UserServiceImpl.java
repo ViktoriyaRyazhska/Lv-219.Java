@@ -59,11 +59,11 @@ public class UserServiceImpl implements UserService {
 		return roundedResult;
 	}
 	public List<Book> booksWasTaken(Integer userId){
-		List<Book> takenBooks = userDAO.booksWasTaken(3);
+		List<Book> takenBooks = userDAO.booksWasTaken(userId);
 		return takenBooks;
 	}
 	public List<Book> booksWasNotReturned(Integer userId){
-		List<Book> notReturnedBook = userDAO.booksWasNotReturned(2);
+		List<Book> notReturnedBook = userDAO.booksWasNotReturned(userId);
 		return notReturnedBook;
 	}
 	

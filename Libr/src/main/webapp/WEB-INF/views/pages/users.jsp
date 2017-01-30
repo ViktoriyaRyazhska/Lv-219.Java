@@ -6,7 +6,7 @@
 		
 			<table >
 				<thead>
-				<tr ><th>Name</th><th>Birth date</th><th>Library user since</th></tr>
+				<tr ><th>Name</th><th>Birth date</th><th>Library user since</th><th>InfoLink</th></tr>
 				</thead>					
 				<c:forEach items="${users}" var="current">
 					<tr>
@@ -15,6 +15,8 @@
 						<td><c:out value="${current.birthDate}"/>
 						</td>
 						<td><c:out value="${current.registrationDate}"/>
+						</td>
+						<td><a href="${pageContext.request.contextPath}/users/info/${current.id}">info</a>
 						</td>
 						
 					</tr>

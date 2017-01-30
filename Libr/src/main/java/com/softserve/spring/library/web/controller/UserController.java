@@ -36,7 +36,17 @@ public class UserController {
 		return mav;
 	}
 
-	
+	@GetMapping("/info/{userId}")
+	public ModelAndView getBookInfo(@PathVariable("userId") String id) {
+		Integer userId =Integer.parseInt(id);
+		ModelAndView model = new ModelAndView("userInfo");
+		model.addObject("userObj", us.getUserById(userId));
+		model.addObject("bookOnHands", us.booksWasNotReturned(userId));
+		model.addObject("bookTaken", us.booksWasTaken(userId));
+		model.addObject("timeSinceRegistration", us.getTimeSinceRegistration(userId));
+		
+		return model;
+	}
 	
 	
 
