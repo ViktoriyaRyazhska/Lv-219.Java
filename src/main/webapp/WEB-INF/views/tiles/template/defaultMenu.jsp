@@ -24,6 +24,15 @@
 			<li><a href="${pageContext.request.contextPath}/hotelForm2">Count of Free Rooms</a> </li>
 			<li><a href="${pageContext.request.contextPath}/hotelForm3">Avaliable by City and Date </a> </li>
 			</ul>
+			
+			
+			 <li>  Visa
+		    <ul>
+			<li><a href="${pageContext.request.contextPath}/visaForm">Visas by Client</a> </li>
+			
+			</ul>
+			
+			
             </li>
 		
 

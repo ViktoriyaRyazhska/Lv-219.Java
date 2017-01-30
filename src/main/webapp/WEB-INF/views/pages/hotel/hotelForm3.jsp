@@ -1,5 +1,5 @@
 <form method="post" action="${pageContext.request.contextPath}/avaliableHotels">
-	<label for="hotel">City:</label>
+	<label for="city">City:</label>
 	<input type="text" id="city" name="city" placeholder="Enter city" /> <br />
 	<br />
 	<label for="date">Date:</label>

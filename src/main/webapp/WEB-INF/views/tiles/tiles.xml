@@ -71,17 +71,13 @@
        <put-attribute name="body" value="/WEB-INF/views/pages/hotel/avaliableHotels.jsp" />  
    </definition>  
    
-   
-      
-   <!-- Contact-us Page -->
-   <definition name="contactus" extends="base-definition">  
-       <put-attribute name="title" value="Contact Us" />  
-       <put-attribute name="body" value="/WEB-INF/views/pages/contactus.jsp" />  
+    <!-- Visa Form Page -->
+   <definition name="visaForm" extends="base-definition">  
+       <put-attribute name="title" value="Visa Form" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/visa/visaForm.jsp" />  
    </definition>  
    
    
-   
-   
-   
+      
  
 </tiles-definitions>
