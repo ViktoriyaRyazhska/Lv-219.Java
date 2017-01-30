@@ -25,5 +25,6 @@
 			</table>
 		</c:if>
 		<br/>
+		<a href="${pageContext.request.contextPath}/books/byName/form">statistic by book name</a>
 		
 	</div>

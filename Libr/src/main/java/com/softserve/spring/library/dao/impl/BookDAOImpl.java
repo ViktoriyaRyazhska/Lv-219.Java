@@ -2,6 +2,7 @@ package com.softserve.spring.library.dao.impl;
 
 import java.text.DateFormat;
 import java.text.ParseException;import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.softserve.spring.library.dao.interfaces.BookDAO;
 import com.softserve.spring.library.entity.Book;
 import com.softserve.spring.library.entity.BookInstance;
+import com.softserve.spring.library.entity.ByBookNameStatisticDTO;
 
 @Repository
 @Transactional
@@ -267,6 +269,30 @@ public class BookDAOImpl extends GenericDAOImpl<Book, Integer>implements BookDAO
 			res =  bla.getResultList();
 		
 		return res;
+	}
+	
+	public List<ByBookNameStatisticDTO> getStatistic(String bookName) {
+		Session session = null;
+		String queryString = "select rs.bookInstance, (case when (count( case when rs.returnDate is null then 1 else null end) > 0) then false else true end) AS isavailable"
+				+ " from ReadSession rs "
+				+ "where rs.bookInstance.book.name =:bookName "
+				+ "group by rs.bookInstance.id";
+
+		List<Object[]> tempRes;
+		List<ByBookNameStatisticDTO> res = new ArrayList<>();
+		
+			session = sessionFactory.getCurrentSession();
+			Query<Object[]> query = session.createQuery(queryString);
+			query.setParameter("bookName", bookName);
+			tempRes = (List<Object[]>) query.getResultList();
+			if (tempRes != null) {
+				for (Object[] obj : tempRes) {
+					res.add(new ByBookNameStatisticDTO( (BookInstance) obj[0], (Boolean)obj[1]));
+				}
+			}
+			
+		return res;
+
 	}
 
 }

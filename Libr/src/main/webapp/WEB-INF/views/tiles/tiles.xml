@@ -37,6 +37,18 @@
        <put-attribute name="body" value="/WEB-INF/views/pages/bookInstances.jsp" />  
    </definition> 
    
+     <!-- BooksByNameInfo form Page -->
+   <definition name="bookForm" extends="base-definition">  
+       <put-attribute name="title" value="By name form" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/bookForm.jsp" />  
+   </definition> 
+   
+   <!-- BooksByNameInfo result Page -->
+   <definition name="bookResult" extends="base-definition">  
+       <put-attribute name="title" value="By name result" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/bookResult.jsp" />  
+   </definition> 
+   
      <!-- UserInfo Page -->
    <definition name="userInfo" extends="base-definition">  
        <put-attribute name="title" value="UserInfo" />  

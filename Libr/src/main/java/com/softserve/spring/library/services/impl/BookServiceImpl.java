@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.softserve.spring.library.dao.interfaces.BookDAO;
 import com.softserve.spring.library.entity.Book;
 import com.softserve.spring.library.entity.BookInstance;
+import com.softserve.spring.library.entity.ByBookNameStatisticDTO;
 import com.softserve.spring.library.services.BookService;
 
 @Service
@@ -122,5 +123,10 @@ public class BookServiceImpl implements BookService {
 	
 	public List<Book> getAllBooks() {
 		return bookDAO.getAllElements();
+	}
+
+	@Override
+	public List<ByBookNameStatisticDTO> getStatistic(String bookName) {
+		return bookDAO.getStatistic(bookName);
 	}
 }

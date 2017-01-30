@@ -1,5 +1,6 @@
 package com.softserve.spring.library.web.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.softserve.spring.library.entity.Book;
+import com.softserve.spring.library.entity.ByBookNameStatisticDTO;
 import com.softserve.spring.library.services.BookService;
 import com.softserve.spring.library.services.UserService;
 
@@ -49,6 +51,16 @@ public class BookController {
 		return model;
 	}
 	
-	
+	 @RequestMapping(value = { "/byName/form" }, method = RequestMethod.GET)
+	    public String showForm(ModelMap model) {
+	        return "bookForm";
+	    }
+	 
+	 @RequestMapping(value = "/byName", method = RequestMethod.POST)
+	    public ModelAndView getByCity(@RequestParam String book, ModelMap model) {
+
+	        return new ModelAndView("bookResult", "res", new ArrayList<ByBookNameStatisticDTO>(bs.getStatistic(book)));
+
+	    }
 
 }

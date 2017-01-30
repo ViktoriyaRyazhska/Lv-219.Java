@@ -4,9 +4,12 @@ import java.util.List;
 
 import com.softserve.spring.library.entity.Book;
 import com.softserve.spring.library.entity.BookInstance;
+import com.softserve.spring.library.entity.ByBookNameStatisticDTO;
 
 public interface BookDAO extends GenericDAO<Book, Integer> {
 
+	
+	public List<ByBookNameStatisticDTO> getStatistic(String bookName);
 	public long countAvailableInstances(Integer bookId);
 	
 	public long countAll(Integer bookId);
