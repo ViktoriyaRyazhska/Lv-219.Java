@@ -21,6 +21,11 @@ public class VisaConroller {
         return "visaForm";
     }
 
+    @RequestMapping(value = { "/visaForm2" }, method = RequestMethod.GET)
+    public String showForm2(ModelMap model) {
+        return "visaForm2";
+    }
+
     @RequestMapping(value = "/visasOfClient", method = RequestMethod.POST)
     public ModelAndView getByClient(@RequestParam String firstName, @RequestParam String lastName, ModelMap model) {
         return new ModelAndView("visaByClient", "set", visaService.find(firstName, lastName));

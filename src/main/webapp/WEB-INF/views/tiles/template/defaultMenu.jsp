@@ -29,6 +29,7 @@
 			 <li>  Visa
 		    <ul>
 			<li><a href="${pageContext.request.contextPath}/visaForm">Visas by Client</a> </li>
+			<li><a href="${pageContext.request.contextPath}/visaForm2">Count Of Visas By Country</a> </li>
 			
 			</ul>
 			

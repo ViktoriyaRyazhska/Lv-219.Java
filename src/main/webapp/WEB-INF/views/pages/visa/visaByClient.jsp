@@ -3,6 +3,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<h3>Client has  ${set.size()}  visas </h3>
 <table>
         <th>Country</th>
 	    <th>Start Date</th>

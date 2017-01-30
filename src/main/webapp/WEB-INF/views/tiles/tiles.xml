@@ -77,6 +77,17 @@
        <put-attribute name="body" value="/WEB-INF/views/pages/visa/visaForm.jsp" />  
    </definition> 
    
+   
+    <!-- Visa Form2 Page -->
+   <definition name="visaForm2" extends="base-definition">  
+       <put-attribute name="title" value="Visa Form" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/visa/visaForm2.jsp" />  
+   </definition> 
+   
+   
+   
+   
+   
    <!-- Visa By Client Page -->
    <definition name="visaByClient" extends="base-definition">  
        <put-attribute name="title" value="Visas of Client" />  
