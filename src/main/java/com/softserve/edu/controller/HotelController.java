@@ -31,6 +31,11 @@ public class HotelController {
         return "hotelForm2";
     }
 
+    @RequestMapping(value = { "/hotelForm3" }, method = RequestMethod.GET)
+    public String showForm3(ModelMap model) {
+        return "hotelForm3";
+    }
+
     @RequestMapping(value = "/hotels", method = RequestMethod.POST)
     public ModelAndView getByCity(@RequestParam String city, ModelMap model) {
 
@@ -52,6 +57,24 @@ public class HotelController {
         model.addAttribute("date", date);
         model.addAttribute("count", hotelService.findCountOfFreeRooms(hotel, utilDate));
         return new ModelAndView("freeRooms", model);
+
+    }
+
+    @RequestMapping(value = "/avaliableHotels", method = RequestMethod.POST)
+
+    public ModelAndView avaliableByCityAndDate(@RequestParam String city, @RequestParam String date, ModelMap model) {
+
+        Date utilDate = null;
+        try {
+            SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
+            utilDate = dateFormatter.parse(date);
+        } catch (ParseException e) {
+            System.out.println("Parsing error");
+
+        }
+        model.addAttribute("date", date);
+        model.addAttribute("list", hotelService.findFree(city, utilDate));
+        return new ModelAndView("avaliableHotels", model);
 
     }
 

@@ -63,6 +63,12 @@
    <definition name="freeRooms" extends="base-definition">  
        <put-attribute name="title" value="Free Rooms" />  
        <put-attribute name="body" value="/WEB-INF/views/pages/hotel/freeRooms.jsp" />  
+   </definition> 
+   
+   <!-- Avaliable Hotels Page -->
+   <definition name="avaliableHotels" extends="base-definition">  
+       <put-attribute name="title" value="Avaliable Hotels" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/hotel/avaliableHotels.jsp" />  
    </definition>  
    
    
