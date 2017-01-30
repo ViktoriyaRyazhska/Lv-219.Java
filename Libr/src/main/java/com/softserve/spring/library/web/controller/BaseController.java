@@ -11,24 +11,13 @@ package com.softserve.spring.library.web.controller;
 
 
 
-/*import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-*/
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/*
-import com.softserve.museum.domain.Exhibit;
-import com.softserve.museum.domain.GuideStatisticDTO;
-import com.softserve.museum.service.ExhibitService;
-import com.softserve.museum.service.GuideService;
-*/
 
 /**
  * 

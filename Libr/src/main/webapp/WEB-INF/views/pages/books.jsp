@@ -18,7 +18,7 @@
 						</td>
 						<td><a href="${pageContext.request.contextPath}/books/info/${current.id}">info</a>
 						</td>
-						<td><a href="${pageContext.request.contextPath}/books/inst/${current.id}">info</a>
+						<td><a href="${pageContext.request.contextPath}/inst/${current.id}">instances</a>
 						</td>
 					</tr>
 				</c:forEach>

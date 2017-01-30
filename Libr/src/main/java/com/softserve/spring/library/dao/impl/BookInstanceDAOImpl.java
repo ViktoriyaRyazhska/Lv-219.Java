@@ -26,7 +26,7 @@ public class BookInstanceDAOImpl extends GenericDAOImpl<BookInstance, Integer> i
 	public Double getAvgReadingTime(Integer bookInstanceID) {
 		Session session = null;
 		String queryString = "select (AVG(UNIX_TIMESTAMP(readsession.returnDate)-"
-				+ "UNIX_TIMESTAMP(readsession.getDate)))/86400"
+				+ "UNIX_TIMESTAMP(readsession.getDate)))/86400 "
 				+ "from ReadSession readsession " 
 				+ "inner join readsession.bookInstance " 
 				+ "where readsession.bookInstance.id =:bookInstanceid "
@@ -67,7 +67,7 @@ public class BookInstanceDAOImpl extends GenericDAOImpl<BookInstance, Integer> i
 
 		String queryString = "select count(*) from ReadSession rs " 
 				+ "inner join rs.bookInstance " 
-				+ "where readsession.bookInstance.id =:bookinstanceid and rs.returnDate is null";
+				+ "where rs.bookInstance.id =:bookinstanceid and rs.returnDate is null";
 		boolean available;
 	
 			session = sessionFactory.getCurrentSession();

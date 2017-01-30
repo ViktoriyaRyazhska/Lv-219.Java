@@ -10,6 +10,8 @@ public interface BookInstanceService {
 	
 	public long getTimesTakenById(Integer bookInstanceId);
 	
+	public boolean isAvailable(Integer boInstanceId);
+	
 	public long getAvgReadingTimeByInstance(BookInstance bookInstance);
 	
 	public long getTimesTakenByInstance(BookInstance bookInstance);

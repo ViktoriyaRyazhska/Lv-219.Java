@@ -17,6 +17,9 @@ public class BookInstanceServiceImpl implements BookInstanceService {
 
 	public long getAvgReadingTimeById(Integer bookInstanceId) {
 		Double avgReadingTime = bookInstanceDAO.getAvgReadingTime(bookInstanceId);
+		if (avgReadingTime==null) {
+			avgReadingTime = 0.0;
+		}
 		return Math.round(avgReadingTime);
 	}
 	
@@ -53,5 +56,11 @@ public class BookInstanceServiceImpl implements BookInstanceService {
 	
 	public List<BookInstance> getAllBookInstances() {
 		return bookInstanceDAO.getAllElements();
+	}
+
+	@Override
+	public boolean isAvailable(Integer boInstanceId) {
+		
+		return bookInstanceDAO.isAvailable(boInstanceId);
 	}
 }

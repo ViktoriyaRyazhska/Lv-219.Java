@@ -49,12 +49,6 @@ public class BookController {
 		return model;
 	}
 	
-	@GetMapping("/inst/{bookId}")
-	public ModelAndView getInstances(@PathVariable("bookId") String id) {
-		Integer bookId =Integer.parseInt(id);
-		ModelAndView model = new ModelAndView("bookInstances");
-		model.addObject("instances", bs.getBookInstances(bookId));
-		return model;
-	}
+	
 
 }
