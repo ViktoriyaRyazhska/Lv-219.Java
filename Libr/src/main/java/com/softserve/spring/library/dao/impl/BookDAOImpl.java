@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.softserve.spring.library.dao.interfaces.BookDAO;
 import com.softserve.spring.library.entity.Book;
 import com.softserve.spring.library.entity.BookInstance;
+import com.softserve.spring.library.entity.BookPopularityDTO;
 import com.softserve.spring.library.entity.ByBookNameStatisticDTO;
 
 @Repository
@@ -31,7 +32,7 @@ public class BookDAOImpl extends GenericDAOImpl<Book, Integer>implements BookDAO
 
 	public BookDAOImpl(Class<Book> genericClass) {
 		super(genericClass);
-		// TODO Auto-generated constructor stub
+
 	}
 
 	/**
@@ -39,6 +40,7 @@ public class BookDAOImpl extends GenericDAOImpl<Book, Integer>implements BookDAO
 	 *            book id of object needed to check
 	 * @return quantity of available instances
 	 */
+	@SuppressWarnings("unchecked")
 	public long countAvailableInstances(Integer bookId) {
 		Session session = null;
 		String queryString = "select count(*) from BookInstance bookinstance "
@@ -97,6 +99,7 @@ public class BookDAOImpl extends GenericDAOImpl<Book, Integer>implements BookDAO
 		return res;
 	}
 
+	@SuppressWarnings("unchecked")
 	public Double getAvgReadingTime(Integer bookId) {
 		Session session = null;
 		String queryString = "select (AVG(UNIX_TIMESTAMP(readsession.returnDate))-"
@@ -112,6 +115,7 @@ public class BookDAOImpl extends GenericDAOImpl<Book, Integer>implements BookDAO
 		return res;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Book> bookByAuthor(int authorId) {
 		Session session = null;
 
@@ -128,6 +132,7 @@ public class BookDAOImpl extends GenericDAOImpl<Book, Integer>implements BookDAO
 		return res;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Book> bookByCoAuthor(int coAuthorId) {
 		Session session = null;
 
@@ -144,6 +149,7 @@ public class BookDAOImpl extends GenericDAOImpl<Book, Integer>implements BookDAO
 		return res;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Book> booksIndependanceInstances() {
 		
 		String date="1994-08-26";
@@ -172,9 +178,11 @@ public class BookDAOImpl extends GenericDAOImpl<Book, Integer>implements BookDAO
 	}
 
 	// 6
-	public List<Object []> getPopular(String startDateString, String endDateString) {
+	@SuppressWarnings("unchecked")
+	public List<BookPopularityDTO> getPopular(String startDateString, String endDateString) {
 		
-		List<Object[]> res = null;
+		List<Object[]> tempRes = null;
+		List<BookPopularityDTO> res = null;
 		Session session = null;
 		String queryString = "select rs.bookInstance.book, "
 				+ "count(rs.bookInstance.id) as times from ReadSession rs inner join rs.bookInstance"
@@ -185,12 +193,16 @@ public class BookDAOImpl extends GenericDAOImpl<Book, Integer>implements BookDAO
 			Date startDate = formatter.parse(startDateString);
 			Date endDate = formatter.parse(endDateString);
 			session = sessionFactory.getCurrentSession();
-			Query<Object[]> bla = session.createQuery(queryString);
-			bla.setParameter("stDate", startDate, TemporalType.DATE);
-			bla.setParameter("edDate", endDate, TemporalType.DATE);
+			Query<Object[]> query = session.createQuery(queryString);
+			query.setParameter("stDate", startDate, TemporalType.DATE);
+			query.setParameter("edDate", endDate, TemporalType.DATE);
 
-			res = bla.getResultList();
-			
+			tempRes = query.getResultList();
+			if (tempRes != null) {
+				for (Object[] obj : tempRes) {
+					res.add(new BookPopularityDTO((Book) obj[0], (Long) obj[1]));
+				}
+			}
 
 		} catch (ParseException | NullPointerException e) {
 
@@ -200,23 +212,31 @@ public class BookDAOImpl extends GenericDAOImpl<Book, Integer>implements BookDAO
 		return res;
 	}
 
-	public List<Object []> getNotPopular(String startDateString, String endDateString) {
+	@SuppressWarnings("unchecked")
+	public List<BookPopularityDTO> getNotPopular(String startDateString, String endDateString) {
 	
-		List<Object[]> res = null;
+		List<Object[]> tempRes = null;
+		List<BookPopularityDTO> res = null;
 		Session session = null;
 		String queryString = "select rs.bookInstance.book, "
-				+ "count(rs.bookInstance.id) as times from ReadSession rs inner join rs.bookInstance"
+				+ "count(rs.bookInstance.book.id) as times from ReadSession rs inner join rs.bookInstance"
 				+ " inner join rs.bookInstance.book " + "where rs.getDate between :stDate and :edDate"
-				+ " group by rs.bookInstance.id " + "order by times desc";
+				+ " group by rs.bookInstance.book.id " + "order by times desc";
 		try {
 			DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			Date startDate = formatter.parse(startDateString);
 			Date endDate = formatter.parse(endDateString);
 			session = sessionFactory.getCurrentSession();
-			Query<Object[]> bla = session.createQuery(queryString);
-			bla.setParameter("stDate", startDate, TemporalType.DATE);
-			bla.setParameter("edDate", endDate, TemporalType.DATE);
-			res = bla.getResultList();
+			Query<Object[]> query = session.createQuery(queryString);
+			query.setParameter("stDate", startDate, TemporalType.DATE);
+			query.setParameter("edDate", endDate, TemporalType.DATE);
+			tempRes = query.getResultList();
+			
+			if (tempRes != null) {
+				for (Object[] obj : tempRes) {
+					res.add(new BookPopularityDTO((Book) obj[0], (Long) obj[1]));
+				}
+			}
 
 		} catch (ParseException | NullPointerException e) {
 			System.out.println("Wrong Input");
@@ -239,6 +259,7 @@ public class BookDAOImpl extends GenericDAOImpl<Book, Integer>implements BookDAO
 		return available;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Book> getBookInfo(int BookId) {
 
 		Session session = null;
@@ -248,13 +269,14 @@ public class BookDAOImpl extends GenericDAOImpl<Book, Integer>implements BookDAO
 
 		
 		session = sessionFactory.getCurrentSession();
-			Query<Book> bla = session.createQuery(queryString);
-			bla.setParameter("idbook", BookId);
-			res =  bla.getResultList();
-		
+			Query<Book> query = session.createQuery(queryString);
+			query.setParameter("idbook", BookId);
+			res =  query.getResultList();
+		 
 		return res;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<BookInstance> getinstances(int BookId) {
 
 		Session session = null;
@@ -264,13 +286,14 @@ public class BookDAOImpl extends GenericDAOImpl<Book, Integer>implements BookDAO
 
 		
 		session = sessionFactory.getCurrentSession();
-			Query<BookInstance> bla = session.createQuery(queryString);
-			bla.setParameter("idbook", BookId);
-			res =  bla.getResultList();
+			Query<BookInstance> query = session.createQuery(queryString);
+			query.setParameter("idbook", BookId);
+			res =  query.getResultList();
 		
 		return res;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<ByBookNameStatisticDTO> getStatistic(String bookName) {
 		Session session = null;
 		String queryString = "select rs.bookInstance, (case when (count( case when rs.returnDate is null then 1 else null end) > 0) then false else true end) AS isavailable"
@@ -293,6 +316,70 @@ public class BookDAOImpl extends GenericDAOImpl<Book, Integer>implements BookDAO
 			
 		return res;
 
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public BookPopularityDTO getMostPopular(String startDateString, String endDateString) {
+		List<Object[]> res = null;
+		Session session = null;
+		BookPopularityDTO mostPopular = null;
+		String queryString = "select rs.bookInstance.book, "
+				+ "count(rs.bookInstance.id) as times from ReadSession rs inner join rs.bookInstance"
+				+ " inner join rs.bookInstance.book " + "where rs.getDate between :stDate and :edDate"
+				+ " group by rs.bookInstance.id " + "order by times";
+		try {
+			DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			Date startDate = formatter.parse(startDateString);
+			Date endDate = formatter.parse(endDateString);
+			session = sessionFactory.getCurrentSession();
+			Query<Object[]> query = session.createQuery(queryString);
+			query.setParameter("stDate", startDate, TemporalType.DATE);
+			query.setParameter("edDate", endDate, TemporalType.DATE);
+
+			res = query.getResultList();
+			Object[] neededObject = res.get(res.size()-1);
+			mostPopular = new BookPopularityDTO((Book) neededObject[0], (Long)neededObject[1]);
+			
+
+		} catch (ParseException | NullPointerException | IndexOutOfBoundsException e) {
+
+			System.out.println("Wrong Input");
+			e.printStackTrace();
+		} 
+		return mostPopular;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public BookPopularityDTO getLeastPopular(String startDateString, String endDateString) {
+		List<Object[]> res = null;
+		Session session = null;
+		BookPopularityDTO leastPopular = null;
+		String queryString = "select rs.bookInstance.book, "
+				+ "count(rs.bookInstance.id) as times from ReadSession rs inner join rs.bookInstance"
+				+ " inner join rs.bookInstance.book " + "where rs.getDate between :stDate and :edDate"
+				+ " group by rs.bookInstance.id " + "order by times";
+		try {
+			DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			Date startDate = formatter.parse(startDateString);
+			Date endDate = formatter.parse(endDateString);
+			session = sessionFactory.getCurrentSession();
+			Query<Object[]> query = session.createQuery(queryString);
+			query.setParameter("stDate", startDate, TemporalType.DATE);
+			query.setParameter("edDate", endDate, TemporalType.DATE);
+
+			res = query.getResultList();
+			Object[] neededObject = res.get(0);
+			leastPopular = new BookPopularityDTO((Book) neededObject[0], (Long)neededObject[1]);
+			
+
+		} catch (ParseException | NullPointerException | IndexOutOfBoundsException e) {
+
+			System.out.println("Wrong Input");
+			e.printStackTrace();
+		} 
+		return leastPopular;
 	}
 
 }

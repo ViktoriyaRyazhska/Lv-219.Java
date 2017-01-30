@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.softserve.spring.library.entity.Book;
 import com.softserve.spring.library.entity.BookInstance;
+import com.softserve.spring.library.entity.BookPopularityDTO;
 import com.softserve.spring.library.entity.ByBookNameStatisticDTO;
 
 public interface BookDAO extends GenericDAO<Book, Integer> {
@@ -24,9 +25,13 @@ public interface BookDAO extends GenericDAO<Book, Integer> {
 	
 	public List<Book> booksIndependanceInstances();
 	
-	public List<Object[]> getPopular(String startDate, String endDate);
+	public List<BookPopularityDTO> getPopular(String startDate, String endDate);
 	
-	public List<Object[]> getNotPopular(String startDateString, String endDateString);
+	public List<BookPopularityDTO> getNotPopular(String startDateString, String endDateString);
+	
+public BookPopularityDTO getMostPopular(String startDate, String endDate);
+	
+	public BookPopularityDTO getLeastPopular(String startDateString, String endDateString);
 	
 	public List<Book> getBookInfo(int BookId);
 	

@@ -27,6 +27,8 @@
 		</c:if>
 		<c:if test="${empty res}">
 		<c:out value="no books found for that name"/>
+		<a href="${pageContext.request.contextPath}/books/byName/form">Try again</a>
+		
 		</c:if>
 
 	<br />

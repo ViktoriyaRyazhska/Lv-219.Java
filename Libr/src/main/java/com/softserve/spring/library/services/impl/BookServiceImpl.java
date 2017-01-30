@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.softserve.spring.library.dao.interfaces.BookDAO;
 import com.softserve.spring.library.entity.Book;
 import com.softserve.spring.library.entity.BookInstance;
+import com.softserve.spring.library.entity.BookPopularityDTO;
 import com.softserve.spring.library.entity.ByBookNameStatisticDTO;
 import com.softserve.spring.library.services.BookService;
 
@@ -84,14 +85,24 @@ public class BookServiceImpl implements BookService {
 		return countInst;
 	}
 	
-	public List<Object []> getNotPopular(String startDateString, String endDateString){
-		List<Object []> notPopularList = bookDAO.getNotPopular(startDateString, endDateString);
+	public List<BookPopularityDTO> getNotPopular(String startDateString, String endDateString){
+		List<BookPopularityDTO> notPopularList = bookDAO.getNotPopular(startDateString, endDateString);
 		return notPopularList;
 	}
 	
-	public List<Object []> getPopular(String startDateString, String endDateString){
-		List<Object []> popularList = bookDAO.getPopular(startDateString, endDateString);
+	public List<BookPopularityDTO> getPopular(String startDateString, String endDateString){
+		List<BookPopularityDTO> popularList = bookDAO.getPopular(startDateString, endDateString);
 		return popularList;
+	}
+	
+	public BookPopularityDTO getLeastPopular(String startDateString, String endDateString){
+		BookPopularityDTO notPopular = bookDAO.getLeastPopular(startDateString, endDateString);
+		return notPopular;
+	}
+	
+	public BookPopularityDTO getMostPopular(String startDateString, String endDateString){
+		BookPopularityDTO popular = bookDAO.getMostPopular(startDateString, endDateString);
+		return popular;
 	}
 	
 	public List<Book> getBookInfo(int bookId){

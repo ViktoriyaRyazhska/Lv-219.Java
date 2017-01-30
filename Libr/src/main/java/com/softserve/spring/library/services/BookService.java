@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.softserve.spring.library.entity.Book;
 import com.softserve.spring.library.entity.BookInstance;
+import com.softserve.spring.library.entity.BookPopularityDTO;
 import com.softserve.spring.library.entity.ByBookNameStatisticDTO;
 
 public interface BookService {
@@ -32,9 +33,9 @@ public interface BookService {
 	
 	public List<ByBookNameStatisticDTO> getStatistic(String bookName);
 	
-	public List<Object []> getNotPopular(String startDateString, String endDateString);
+	public List<BookPopularityDTO> getNotPopular(String startDateString, String endDateString);
 	
-	public List<Object []> getPopular(String startDateString, String endDateString);
+	public List<BookPopularityDTO> getPopular(String startDateString, String endDateString);
 	
 	public List<Book> getBookInfo(int BookId);
 	

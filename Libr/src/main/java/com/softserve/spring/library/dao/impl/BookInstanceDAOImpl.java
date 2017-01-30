@@ -19,7 +19,6 @@ public class BookInstanceDAOImpl extends GenericDAOImpl<BookInstance, Integer> i
 
 	public BookInstanceDAOImpl(Class<BookInstance> genericClass) {
 		super(genericClass);
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
@@ -45,6 +44,7 @@ public class BookInstanceDAOImpl extends GenericDAOImpl<BookInstance, Integer> i
 	
 
 
+	@SuppressWarnings("unchecked")
 	public long timesWasTaken(Integer bookInstanceId) {
 		Session session = null;
 
@@ -71,6 +71,7 @@ public class BookInstanceDAOImpl extends GenericDAOImpl<BookInstance, Integer> i
 		boolean available;
 	
 			session = sessionFactory.getCurrentSession();
+			@SuppressWarnings("unchecked")
 			Query<Long> query = session.createQuery(queryString);
 			query.setParameter("bookinstanceid", bookInstanceId);
 			available = !((Long) query.getSingleResult() > 0);
