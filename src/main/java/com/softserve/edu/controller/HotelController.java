@@ -23,6 +23,11 @@ public class HotelController {
         return "hotelForm";
     }
 
+    @RequestMapping(value = { "/hotelForm2" }, method = RequestMethod.GET)
+    public String showForm2(ModelMap model) {
+        return "hotelForm2";
+    }
+
     @RequestMapping(value = "/hotels", method = RequestMethod.POST)
     public ModelAndView getByCity(@RequestParam String city, ModelMap model) {
 

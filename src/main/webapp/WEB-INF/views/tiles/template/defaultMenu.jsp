@@ -23,6 +23,7 @@
              <li>  Hotels
 		    <ul>
 			<li><a href="${pageContext.request.contextPath}/hotelForm">Find by city</a> </li>
+			<li><a href="${pageContext.request.contextPath}/hotelForm2">Count of Free Rooms</a> </li>
 			</ul>
             </li>
 		

@@ -40,6 +40,13 @@
    </definition>  
    
    
+   <!-- Hotel Form2 Page -->
+   <definition name="hotelForm2" extends="base-definition">  
+       <put-attribute name="title" value="Hotel Form" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/hotel/hotelForm2.jsp" />  
+   </definition>  
+   
+   
    <!-- Hotels Page -->
    <definition name="hotels" extends="base-definition">  
        <put-attribute name="title" value="Hotels" />  
