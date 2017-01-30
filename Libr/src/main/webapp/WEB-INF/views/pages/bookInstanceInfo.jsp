@@ -15,11 +15,18 @@
 			</thead>
 			<tr>
 				<td><c:out value="${timesPicked}" /></td>
-				<td><c:if test="${avgReadTime eq 0}">
+				
+				<td>
+				<c:if test="${timesPicked eq 0}">
+				<c:out value="not picked yet" />
+				</c:if>
+				<c:if test="${timesPicked ne 0}">
+				<c:if test="${avgReadTime eq 0}">
 				<c:out value="not returned yet" />
 				</c:if>
 				<c:if test="${avgReadTime ne 0}">
-				<c:out value="${avgReadTime}" />
+				<c:out value="${avgReadTime} days" />
+				</c:if>
 				</c:if></td>
 				<td><c:out value="${isAvailable}" /></td>
 			</tr>
