@@ -1,10 +1,17 @@
 html{
-	background-color:rgb(66, 223, 244);
+	background-color:#ffffff ;
 }
 
+li {
+	color:white;
+}
+
+li a {
+	color:red;
+}
 body{
 	height: 100%;
-	background-color:rgb(66, 223, 244);
+	background-color:white;
 }
 
 

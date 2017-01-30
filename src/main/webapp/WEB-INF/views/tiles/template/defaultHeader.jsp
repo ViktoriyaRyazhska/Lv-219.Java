@@ -1,3 +1,3 @@
 <div>
-    	<h1>Tiles Demo</h1>
+    	<h1>Travel agency</h1>
 </div>
