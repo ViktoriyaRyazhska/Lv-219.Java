@@ -92,7 +92,17 @@
    <definition name="visaByClient" extends="base-definition">  
        <put-attribute name="title" value="Visas of Client" />  
        <put-attribute name="body" value="/WEB-INF/views/pages/visa/visaByClient.jsp" />  
+   </definition> 
+   
+   
+   <!-- Count of Visas Page -->
+   <definition name="countOfVisas" extends="base-definition">  
+       <put-attribute name="title" value="Visas of Client" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/visa/CountOfVisasByCountry.jsp" />  
    </definition>  
+   
+   
+   
    
    
       

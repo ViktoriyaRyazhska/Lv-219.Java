@@ -32,4 +32,12 @@ public class VisaConroller {
 
     }
 
+    @RequestMapping(value = "/countOfVisas", method = RequestMethod.POST)
+    public ModelAndView getCountByCountry(@RequestParam String country, ModelMap model) {
+        model.addAttribute("country", country);
+        model.addAttribute("count", visaService.countOfVisas(country));
+        return new ModelAndView("countOfVisas", model);
+
+    }
+
 }
