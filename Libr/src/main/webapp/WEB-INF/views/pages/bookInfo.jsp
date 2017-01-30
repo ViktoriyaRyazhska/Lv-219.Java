@@ -3,6 +3,7 @@
 
 <div style="max-width: 800px; margin-top: 100px; margin-bottom: 100px">
 	
+	<h2><c:out value="${bookObj.name}" /></h2>
 
 		<table>
 			<thead>

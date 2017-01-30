@@ -3,6 +3,7 @@ package com.softserve.spring.library.dao.interfaces;
 import java.util.List;
 
 import com.softserve.spring.library.entity.Book;
+import com.softserve.spring.library.entity.BookInstance;
 
 public interface BookDAO extends GenericDAO<Book, Integer> {
 
@@ -27,4 +28,5 @@ public interface BookDAO extends GenericDAO<Book, Integer> {
 	public List<Book> getBookInfo(int BookId);
 	
 	public long countInstances(String bookName);
+	public List<BookInstance> getinstances(int BookId);
 }

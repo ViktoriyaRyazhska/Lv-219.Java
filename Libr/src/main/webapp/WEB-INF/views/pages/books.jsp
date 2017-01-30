@@ -6,7 +6,7 @@
 		
 			<table >
 				<thead>
-				<tr ><th>Name</th><th>Author name</th><th>Publish date</th><th>statistic link</th></tr>
+				<tr ><th>Name</th><th>Author name</th><th>Publish date</th><th>statistic link</th><th>instances link</th></tr>
 				</thead>					
 				<c:forEach items="${books}" var="current">
 					<tr>
@@ -17,6 +17,8 @@
 						<td><c:out value="${current.publishDate}"/>
 						</td>
 						<td><a href="${pageContext.request.contextPath}/books/info/${current.id}">info</a>
+						</td>
+						<td><a href="${pageContext.request.contextPath}/books/inst/${current.id}">info</a>
 						</td>
 					</tr>
 				</c:forEach>

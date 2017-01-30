@@ -25,6 +25,12 @@
        <put-attribute name="body" value="/WEB-INF/views/pages/books.jsp" />  
    </definition> 
    
+   <!-- BooksInstances Page -->
+   <definition name="bookInstances" extends="base-definition">  
+       <put-attribute name="title" value="Books" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/bookInstances.jsp" />  
+   </definition> 
+   
        <!-- BookInfo Page -->
    <definition name="bookInfo" extends="base-definition">  
        <put-attribute name="title" value="BookInfo" />  

@@ -3,6 +3,7 @@ package com.softserve.spring.library.services;
 import java.util.List;
 
 import com.softserve.spring.library.entity.Book;
+import com.softserve.spring.library.entity.BookInstance;
 
 public interface BookService {
 
@@ -18,6 +19,7 @@ public interface BookService {
 	
 	public long getTimesBookTaken(Book book);
 
+	public List<BookInstance> getBookInstances(int bookId);
 	 
 	public List<Book> findBookByAuthor(int authorId);
 	

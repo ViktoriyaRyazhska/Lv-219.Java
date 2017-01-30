@@ -36,15 +36,24 @@ public class BookController {
 	}
 
 	@GetMapping("/info/{bookId}")
-	public ModelAndView processTimeSlotSearchForm(@PathVariable("bookId") String id) {
+	public ModelAndView getBookInfo(@PathVariable("bookId") String id) {
 		Integer bookId =Integer.parseInt(id);
 		ModelAndView model = new ModelAndView("bookInfo");
+		model.addObject("bookObj", bs.getBookById(bookId));
 		model.addObject("book", id);
 		model.addObject("isAvailable", bs.checkIfAvailableById(bookId));
 		model.addObject("timesPicked", bs.getTimesBookTakenById(bookId));
 		model.addObject("avgReadingTime", bs.getAvgReadingTimeById(bookId));
 		model.addObject("avgAge", us.getAvgAgeByBook(bookId));
 		
+		return model;
+	}
+	
+	@GetMapping("/inst/{bookId}")
+	public ModelAndView getInstances(@PathVariable("bookId") String id) {
+		Integer bookId =Integer.parseInt(id);
+		ModelAndView model = new ModelAndView("bookInstances");
+		model.addObject("instances", bs.getBookInstances(bookId));
 		return model;
 	}
 

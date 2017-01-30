@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.softserve.spring.library.dao.interfaces.BookDAO;
 import com.softserve.spring.library.entity.Book;
+import com.softserve.spring.library.entity.BookInstance;
 
 @Repository
 @Transactional
@@ -246,6 +247,22 @@ public class BookDAOImpl extends GenericDAOImpl<Book, Integer>implements BookDAO
 		
 		session = sessionFactory.getCurrentSession();
 			Query<Book> bla = session.createQuery(queryString);
+			bla.setParameter("idbook", BookId);
+			res =  bla.getResultList();
+		
+		return res;
+	}
+	
+	public List<BookInstance> getinstances(int BookId) {
+
+		Session session = null;
+		List<BookInstance> res;
+		String queryString = "select bi from BookInstance bi "
+				+ "inner join bi.book " + "where bi.book.id= :idbook";
+
+		
+		session = sessionFactory.getCurrentSession();
+			Query<BookInstance> bla = session.createQuery(queryString);
 			bla.setParameter("idbook", BookId);
 			res =  bla.getResultList();
 		
