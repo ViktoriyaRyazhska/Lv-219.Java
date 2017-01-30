@@ -1,0 +1,129 @@
+package com.softserve.spring.library.web.config;
+
+import java.io.Serializable;
+import java.util.Locale;
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
+import org.apache.commons.dbcp2.BasicDataSource;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.core.env.Environment;
+import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.i18n.CookieLocaleResolver;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
+import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
+
+
+
+@EnableWebMvc
+@Configuration
+@EnableTransactionManagement
+@ComponentScan(
+		basePackages = {"com.softserve.spring"})
+
+    @PropertySource("classpath:app.properties")
+public class WebAppConfig extends WebMvcConfigurerAdapter {
+    
+	@Autowired
+	private Environment env;
+	
+	private String[] packages = {"com.softserve.spring.library.entity"};
+	
+	/**
+     * Configure TilesConfigurer.
+     */
+	@Bean
+	public TilesConfigurer tilesConfigurer(){
+	    TilesConfigurer tilesConfigurer = new TilesConfigurer();
+	    tilesConfigurer.setDefinitions(new String[] {"/WEB-INF/views/tiles/tiles.xml"});
+	    tilesConfigurer.setCheckRefresh(true);
+	    return tilesConfigurer;
+	}
+
+	/**
+     * Configure ViewResolvers to deliver preferred views.
+     */
+	@Override
+	public void configureViewResolvers(ViewResolverRegistry registry) {
+		TilesViewResolver viewResolver = new TilesViewResolver();
+		registry.viewResolver(viewResolver);
+	}
+	
+	/**
+     * Configure ResourceHandlers to serve static resources like CSS/ Javascript etc...
+     */
+	
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/static/**").addResourceLocations("/static/");
+    }
+
+    @Bean(name = "dataSource")
+    public DataSource getDataSource() {
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setDriverClassName(env.getRequiredProperty("jdbc.driverClassName"));
+		dataSource.setUrl(env.getRequiredProperty("jdbc.url"));
+		dataSource.setUsername(env.getRequiredProperty("jdbc.username"));
+		dataSource.setPassword(env.getRequiredProperty("jdbc.password"));
+
+        return dataSource;
+    }
+
+    private Properties getHibernateProperties() {
+        Properties properties = new Properties();
+        properties.put("hibernate.dialect", env.getRequiredProperty("hibernate.dialect"));
+		properties.put("hibernate.show_sql", env.getRequiredProperty("hibernate.show_sql"));
+		properties.put("hibernate.format_sql", env.getRequiredProperty("hibernate.format_sql"));
+		properties.put("hibernate.hbm2ddl.auto", env.getRequiredProperty("hibernate.hbm2ddl.auto"));
+        return properties;
+    }
+	
+	
+
+
+    @Bean(name = "sessionFactory")
+    public LocalSessionFactoryBean getSessionFactory(DataSource ds) {
+        LocalSessionFactoryBean sf = new LocalSessionFactoryBean();
+        sf.setDataSource(ds);
+        sf.setPackagesToScan(packages);
+        sf.setHibernateProperties(getHibernateProperties());
+        return sf;
+    }
+
+
+    @Bean(name = "transactionManager")
+    public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
+        HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
+
+        return transactionManager;
+    }
+    
+   
+    
+   
+    
+   
+}
+
