@@ -1,3 +1,3 @@
 <div>
-  Made in this world.
+  Made by Yurii Rozhak, Yurii Malyi and Volodymyr Derkach
 </div>

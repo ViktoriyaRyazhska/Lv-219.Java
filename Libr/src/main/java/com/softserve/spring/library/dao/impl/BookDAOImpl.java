@@ -97,7 +97,7 @@ public class BookDAOImpl extends GenericDAOImpl<Book, Integer>implements BookDAO
 	public Double getAvgReadingTime(Integer bookId) {
 		Session session = null;
 		String queryString = "select (AVG(UNIX_TIMESTAMP(readsession.returnDate))-"
-				+ "AVG(UNIX_TIMESTAMP(readsession.getDate)))/86400" + "from ReadSession readsession "
+				+ "AVG(UNIX_TIMESTAMP(readsession.getDate)))/86400" + " from ReadSession readsession "
 				+ "inner join readsession.bookInstance " + "inner join readsession.bookInstance.book "
 				+ "where readsession.bookInstance.book.id =:bookid " + "and readsession.returnDate is not null";
 		Double res;

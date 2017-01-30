@@ -122,7 +122,9 @@ public double avgRequestByPeriod(String startDate, String endDate){
 			Query<Double> query = session.createQuery(queryString);
 			query.setParameter("bookId", bookId);
 			res =  query.getSingleResult();
-		
+		if (res == null) {
+			res = new Double(0.0);
+		}
 		return res;
 	}
 

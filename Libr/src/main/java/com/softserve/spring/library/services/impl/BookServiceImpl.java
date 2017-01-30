@@ -31,6 +31,9 @@ public class BookServiceImpl implements BookService {
 	
 	public long getAvgReadingTimeById(Integer bookId) {
 		Double avgReadingTime = bookDAO.getAvgReadingTime(bookId);
+		if(avgReadingTime == null){
+			avgReadingTime =new Double(0.0);
+		}
 		return Math.round(avgReadingTime);
 	}
 	
