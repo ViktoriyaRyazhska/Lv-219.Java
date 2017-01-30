@@ -26,7 +26,7 @@
    </definition> 
    
    
-   <!-- Cities Page -->
+   <!-- Countries Page -->
    <definition name="countries" extends="base-definition">  
        <put-attribute name="title" value="Countries" />  
        <put-attribute name="body" value="/WEB-INF/views/pages/country/showCountries.jsp" />  
@@ -46,11 +46,23 @@
        <put-attribute name="body" value="/WEB-INF/views/pages/hotel/hotelForm2.jsp" />  
    </definition>  
    
+   <!-- Hotel Form3 Page -->
+   <definition name="hotelForm3" extends="base-definition">  
+       <put-attribute name="title" value="Hotel Form" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/hotel/hotelForm3.jsp" />  
+   </definition>  
+   
    
    <!-- Hotels Page -->
    <definition name="hotels" extends="base-definition">  
        <put-attribute name="title" value="Hotels" />  
        <put-attribute name="body" value="/WEB-INF/views/pages/hotel/showHotels.jsp" />  
+   </definition> 
+   
+   <!-- Hotels Free Roooms Page -->
+   <definition name="freeRooms" extends="base-definition">  
+       <put-attribute name="title" value="Free Rooms" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/hotel/freeRooms.jsp" />  
    </definition>  
    
    
