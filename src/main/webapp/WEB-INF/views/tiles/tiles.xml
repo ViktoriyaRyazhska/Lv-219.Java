@@ -19,11 +19,20 @@
        <put-attribute name="body" value="/WEB-INF/views/pages/home.jsp" />  
    </definition>  
 
-   <!-- Product Page -->
+   <!-- Cities Page -->
    <definition name="cities" extends="base-definition">  
        <put-attribute name="title" value="Cities" />  
        <put-attribute name="body" value="/WEB-INF/views/pages/city/showCities.jsp" />  
+   </definition> 
+   
+   
+   <!-- Cities Page -->
+   <definition name="countries" extends="base-definition">  
+       <put-attribute name="title" value="Countries" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/country/showCountries.jsp" />  
    </definition>  
+   
+   
       
    <!-- Contact-us Page -->
    <definition name="contactus" extends="base-definition">  
