@@ -40,6 +40,13 @@
    </definition>  
    
    
+   <!-- Hotels Page -->
+   <definition name="hotels" extends="base-definition">  
+       <put-attribute name="title" value="Hotels" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/hotel/showHotels.jsp" />  
+   </definition>  
+   
+   
       
    <!-- Contact-us Page -->
    <definition name="contactus" extends="base-definition">  
