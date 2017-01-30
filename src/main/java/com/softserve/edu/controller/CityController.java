@@ -16,7 +16,7 @@ public class CityController {
     private CityService cityService;
 
     @GetMapping("/cities")
-    public ModelAndView byMaterial() {
+    public ModelAndView getAll() {
         return new ModelAndView("cities", "set", new HashSet<>(cityService.getAll()));
     }
 

@@ -19,6 +19,12 @@
 			<li><a href="${pageContext.request.contextPath}/countries">Show countries</a> </li>
 			</ul>
             </li>
+            
+             <li>  Hotels
+		    <ul>
+			<li><a href="${pageContext.request.contextPath}/hotelForm">Find by city</a> </li>
+			</ul>
+            </li>
 		
 
 	</ul>

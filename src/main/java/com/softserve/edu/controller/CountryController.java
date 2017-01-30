@@ -16,7 +16,7 @@ public class CountryController {
     private CountryService countryService;
 
     @GetMapping("/countries")
-    public ModelAndView byMaterial() {
+    public ModelAndView getAll() {
         return new ModelAndView("countries", "set", new HashSet<>(countryService.getAll()));
     }
 

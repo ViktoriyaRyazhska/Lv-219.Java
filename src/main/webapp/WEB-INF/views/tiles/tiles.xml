@@ -33,6 +33,13 @@
    </definition>  
    
    
+   <!-- Hotel Form Page -->
+   <definition name="hotelForm" extends="base-definition">  
+       <put-attribute name="title" value="Hotel Form" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/hotel/hotelForm.jsp" />  
+   </definition>  
+   
+   
       
    <!-- Contact-us Page -->
    <definition name="contactus" extends="base-definition">  
