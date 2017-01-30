@@ -12,7 +12,13 @@
 		    <ul>
 			<li><a href="${pageContext.request.contextPath}/cities">Show cities</a> </li>
 			</ul>
-            <li>
+            </li>
+            
+            <li>  Countries
+		    <ul>
+			<li><a href="${pageContext.request.contextPath}/countries">Show countries</a> </li>
+			</ul>
+            </li>
 		
 
 	</ul>
