@@ -11,34 +11,34 @@ import com.softserve.edu.service.TourService;
 public class TourServiceImpl implements TourService{
 
 	@Autowired
-	TourServiceImpl toutServiceImpl;
+	TourService toutService;
 	
 	@Override
 	public void add(Tour tour) {
-		toutServiceImpl.add(tour);
+		toutService.add(tour);
 		
 	}
 
 	@Override
 	public void update(Tour tour) {
-		toutServiceImpl.add(tour);
+		toutService.add(tour);
 		
 	}
 
 	@Override
 	public Tour getById(Integer id) {
-		return toutServiceImpl.getById(id);
+		return toutService.getById(id);
 	}
 
 	@Override
 	public List<Tour> getAllElements() {
 	
-		return toutServiceImpl.getAllElements();
+		return toutService.getAllElements();
 	}
 
 	@Override
 	public void delete(Tour tour) {
-		toutServiceImpl.delete(tour);
+		toutService.delete(tour);
 	}
 
 }
