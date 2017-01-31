@@ -136,8 +136,8 @@ public class BookDAOImpl extends GenericDAOImpl<Book, Integer>implements BookDAO
 	public List<Book> bookByCoAuthor(int coAuthorId) {
 		Session session = null;
 
-		String queryString = "select distinct book from Book book  " + "inner join book.subauthors  "
-				+ "where book.author.id =:coauthorid";
+		String queryString = "select distinct book from Book book  " + "inner join book.subauthors sa "
+				+ "where sa.id =:coauthorid";
 		List<Book> res;
 		
 		session = sessionFactory.getCurrentSession();
