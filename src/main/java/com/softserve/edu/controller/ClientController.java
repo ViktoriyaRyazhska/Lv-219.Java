@@ -23,6 +23,10 @@ public class ClientController {
 	public String homePage(ModelMap model) {
 		return "clientForm";
 	}
+	@RequestMapping(value = { "/clientForm1" }, method = RequestMethod.GET)
+	public String showForm1(ModelMap model) {
+		return "clientForm1";
+	}
 
 	@RequestMapping(value = "/clientStatistic", method = RequestMethod.POST)
 	public ModelAndView getCountByCountry(@RequestParam String firstName, @RequestParam String lastName,
