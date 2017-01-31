@@ -62,16 +62,14 @@ public class HotelController {
 
     @RequestMapping(value = "/avaliableHotels", method = RequestMethod.POST)
 
-    public ModelAndView avaliableByCityAndDate(@RequestParam String city, @RequestParam String date, ModelMap model) {
+    public ModelAndView avaliableByCityAndDate(@RequestParam String city, @RequestParam String date, ModelMap model)
+            throws ParseException {
 
         Date utilDate = null;
-        try {
-            SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
-            utilDate = dateFormatter.parse(date);
-        } catch (ParseException e) {
-            System.out.println("Parsing error");
 
-        }
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
+        utilDate = dateFormatter.parse(date);
+
         model.addAttribute("date", date);
         model.addAttribute("list", hotelService.findFree(city, utilDate));
         return new ModelAndView("avaliableHotels", model);
