@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
  <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<div style="max-width: 800px; margin-top: 100px; margin-bottom: 100px">
+<div >
 
 
 	<c:if test="${not empty res}">

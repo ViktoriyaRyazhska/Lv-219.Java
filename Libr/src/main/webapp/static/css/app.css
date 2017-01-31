@@ -7,6 +7,11 @@ body{
 	background-color:rgb(245, 245, 245);
 }
 
+table {
+	overflow-y: auto;
+height: 300px;
+}
+
 table, th, td {
     padding: 15px;
     text-align: left;
@@ -103,7 +108,7 @@ table, th, td {
     z-index: 20;
     position: fixed;
     min-height: 600px;
-    margin-top:10%;
+    margin-top:15%;
     margin-bottom:10%;
     margin-left:20%;
     padding-left:10px;
