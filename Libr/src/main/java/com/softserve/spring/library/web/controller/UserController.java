@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.softserve.spring.library.entity.User;
@@ -44,6 +46,23 @@ public class UserController {
 		return model;
 	}
 	
+	@RequestMapping(value = { "/statisticForm" }, method = RequestMethod.GET)
+    public String showPopularityForm(ModelMap model) {
+        return "statisticForm";
+    }
+	
+	 @RequestMapping(value = "/statistic/result", method = RequestMethod.POST)
+	    public ModelAndView getStatistic(@RequestParam String startDate,
+	    		@RequestParam String endDate, ModelMap model) {
+
+		ModelAndView modelAndView = new ModelAndView("userStatisticResult");
+		modelAndView.addObject("statistic", us.getStatistic(startDate, endDate));
+		
+	        return modelAndView;
+
+	    }
+	
+
 	
 
 }

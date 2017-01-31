@@ -5,6 +5,7 @@ import java.util.List;
 import com.softserve.spring.library.entity.Book;
 import com.softserve.spring.library.entity.BookInstance;
 import com.softserve.spring.library.entity.User;
+import com.softserve.spring.library.entity.UserStatisticDTO;
 
 public interface UserService {
 
@@ -27,6 +28,7 @@ public interface UserService {
 	public List<Book> booksWasTaken(Integer userId);
 	
 	public List<Book> booksWasNotReturned(Integer userId);
+	public UserStatisticDTO getStatistic(String startDate, String endDate);
 	
 	public void addUser(User user);
 	

@@ -85,6 +85,18 @@
        <put-attribute name="body" value="/WEB-INF/views/pages/bookPopularityResult.jsp" />  
    </definition> 
    
+    <!--user statistic form Page-->
+      <definition name="statisticForm" extends="base-definition">  
+       <put-attribute name="title" value="User statisticForm" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/userStatisticForm.jsp" />  
+   </definition> 
+  
+  <!--user statistic form Page-->
+      <definition name="userStatisticResult" extends="base-definition">  
+       <put-attribute name="title" value="User statistic Result" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/userStatisticResult.jsp" />  
+   </definition> 
+   
    <!-- Contact-us Page -->
    <definition name="contactus" extends="base-definition">  
        <put-attribute name="title" value="Contact Us" />  

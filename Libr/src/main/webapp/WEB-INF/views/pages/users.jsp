@@ -24,5 +24,6 @@
 			</table>
 		</c:if>
 		<br/>
+		<a href="${pageContext.request.contextPath}/users/statisticForm">info</a>
 		
 	</div>

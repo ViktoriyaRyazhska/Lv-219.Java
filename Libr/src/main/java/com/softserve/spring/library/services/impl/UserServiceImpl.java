@@ -9,6 +9,7 @@ import com.softserve.spring.library.dao.interfaces.UserDAO;
 import com.softserve.spring.library.entity.Book;
 import com.softserve.spring.library.entity.BookInstance;
 import com.softserve.spring.library.entity.User;
+import com.softserve.spring.library.entity.UserStatisticDTO;
 import com.softserve.spring.library.services.UserService;
 
 @Service
@@ -65,6 +66,15 @@ public class UserServiceImpl implements UserService {
 	public List<Book> booksWasNotReturned(Integer userId){
 		List<Book> notReturnedBook = userDAO.booksWasNotReturned(userId);
 		return notReturnedBook;
+	}
+	
+	public UserStatisticDTO getStatistic(String startDate, String endDate) {
+		 Double avgAge = userDAO.getAvgReaderAge();
+		 Double avgTimeSinceRegistration = userDAO.getAvgTimeSinceRegistration();
+		 Double avgPeriodRequest = userDAO.avgRequestByPeriod(startDate, endDate);
+		 UserStatisticDTO result = new UserStatisticDTO(avgAge, avgTimeSinceRegistration, avgPeriodRequest); 
+		return result;
+		
 	}
 	
 	public void addUser(User user){
