@@ -325,9 +325,9 @@ public class BookDAOImpl extends GenericDAOImpl<Book, Integer>implements BookDAO
 		Session session = null;
 		BookPopularityDTO mostPopular = null;
 		String queryString = "select rs.bookInstance.book, "
-				+ "count(rs.bookInstance.id) as times from ReadSession rs inner join rs.bookInstance"
+				+ "count(rs.bookInstance.book.id) as times from ReadSession rs inner join rs.bookInstance"
 				+ " inner join rs.bookInstance.book " + "where rs.getDate between :stDate and :edDate"
-				+ " group by rs.bookInstance.id " + "order by times";
+				+ " group by rs.bookInstance.book.id " + "order by times";
 		try {
 			DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			Date startDate = formatter.parse(startDateString);
@@ -357,9 +357,9 @@ public class BookDAOImpl extends GenericDAOImpl<Book, Integer>implements BookDAO
 		Session session = null;
 		BookPopularityDTO leastPopular = null;
 		String queryString = "select rs.bookInstance.book, "
-				+ "count(rs.bookInstance.id) as times from ReadSession rs inner join rs.bookInstance"
+				+ "count(rs.bookInstance.book.id) as times from ReadSession rs inner join rs.bookInstance"
 				+ " inner join rs.bookInstance.book " + "where rs.getDate between :stDate and :edDate"
-				+ " group by rs.bookInstance.id " + "order by times";
+				+ " group by rs.bookInstance.book.id " + "order by times";
 		try {
 			DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			Date startDate = formatter.parse(startDateString);

@@ -3,39 +3,33 @@
 
 <div style="max-width: 800px; margin-top: 100px; margin-bottom: 100px">
 	
-	<h2><c:out value="${mostPopular.name}" /></h2>
+
 
 		<table>
 			<thead>
 				<tr>
-					<th>is popular</th>
+					<th>popularity</th>
 					<th>id</th>
-					<th>is available</th>
+					<th>name</th>
+					<th>author name</th>
 					<th>Times picked</th>
-					<th>avg reading time</th>
-					<th>avg reader age</th>
 				</tr>
 			</thead>
 			<tr>
 				<td>Most popular</td>
-				<td><c:out value="${mostPopular}" /></td>
-				<td><c:out value="${isAvailable}" /></td>
-				<td><c:out value="${timesPicked}" /></td>
-				<td>
-				<c:if test="${avgReadingTime eq 0}">
-				<c:out value="not returned yet" />
-				</c:if>
-				<c:if test="${avgReadingTime ne 0}">
-				<c:out value="${avgReadingTime}" />
-				</c:if>
-				</td>
-				<td>
-				<c:if test="${avgAge eq 0}">
-				<c:out value="not picked yet" />
-				</c:if>
-				<c:if test="${avgAge ne 0}">
-				<c:out value="${avgAge}" />
-				</c:if>
+				<td><c:out value="${mostPopular.book.id}" /></td>
+				<td><c:out value="${mostPopular.book.name}" /></td>
+				<td><c:out value="${mostPopular.book.author.name}" /></td>
+				<td><c:out value="${mostPopular.timesPicked}" /></td>
+				
+			</tr>
+			<tr>
+				<td>Least popular</td>
+				<td><c:out value="${leastPopular.book.id}" /></td>
+				<td><c:out value="${leastPopular.book.name}" /></td>
+				<td><c:out value="${leastPopular.book.author.name}" /></td>
+				<td><c:out value="${leastPopular.timesPicked}" /></td>
+				
 			</tr>
 		</table>
 

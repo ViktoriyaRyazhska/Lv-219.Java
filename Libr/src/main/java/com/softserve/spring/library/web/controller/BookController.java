@@ -79,9 +79,6 @@ public class BookController {
 		 @RequestMapping(value = "/popularity/result", method = RequestMethod.POST)
 		    public ModelAndView getPopular(@RequestParam String startDate,
 		    		@RequestParam String endDate, ModelMap model) {
-//			 System.out.println(startDate);
-//			 System.out.println(endDate);
-//			 String formatedStartDate = startDate.replaceAll("", replacement)
 
 			ModelAndView modelAndView = new ModelAndView("popularityResult");
 			modelAndView.addObject("mostPopular", bs.getMostPopular(startDate, endDate));
