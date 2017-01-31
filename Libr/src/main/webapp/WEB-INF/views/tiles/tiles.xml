@@ -29,7 +29,13 @@
    <definition name="users" extends="base-definition">  
        <put-attribute name="title" value="Users" />  
        <put-attribute name="body" value="/WEB-INF/views/pages/users.jsp" />  
-   </definition> 
+   </definition>
+
+      <!-- Authors Page -->
+    <definition name="authors" extends="base-definition">
+        <put-attribute name="title" value="Authors" />
+        <put-attribute name="body" value="/WEB-INF/views/pages/authors.jsp" />
+    </definition>
    
    <!-- BooksInstances Page -->
    <definition name="bookInstances" extends="base-definition">  
