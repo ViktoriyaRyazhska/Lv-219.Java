@@ -67,6 +67,24 @@
        <put-attribute name="body" value="/WEB-INF/views/pages/bookInstanceInfo.jsp" />  
    </definition> 
    
+       <!-- BookIndap Page -->
+   <definition name="bookIndap" extends="base-definition">  
+       <put-attribute name="title" value="Books published after Independence" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/booksIndap.jsp" />  
+   </definition> 
+   
+   <!-- most popular/unpopular by period form Page-->
+      <definition name="popularityForm" extends="base-definition">  
+       <put-attribute name="title" value="Book popularityForm" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/bookPopularityForm.jsp" />  
+   </definition> 
+   
+    <!-- most popular/unpopular by period result Page-->
+      <definition name="popularityResult" extends="base-definition">  
+       <put-attribute name="title" value="Book popularityResult" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/bookPopularityResult.jsp" />  
+   </definition> 
+   
    <!-- Contact-us Page -->
    <definition name="contactus" extends="base-definition">  
        <put-attribute name="title" value="Contact Us" />  

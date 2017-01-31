@@ -150,9 +150,9 @@ public class BookDAOImpl extends GenericDAOImpl<Book, Integer>implements BookDAO
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Book> booksIndependanceInstances() {
+	public List<Book> booksPublishedInUkraine() {
 		
-		String date="1994-08-26";
+		String date="1991-08-24";
 		
 		Session session = null;
 

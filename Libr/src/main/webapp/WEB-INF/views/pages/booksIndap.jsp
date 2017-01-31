@@ -1,8 +1,11 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <div  style="max-width: 800px; margin-top: 100px; margin-bottom: 100px" >
 		<c:if test="${not empty books}">
+		
+		<p>Number of books is : ${fn:length(books)}</p>
 		
 			<table >
 				<thead>
@@ -24,11 +27,9 @@
 				</c:forEach>
 			</table>
 		</c:if>
+		<c:if test="${empty books}">No books published after independence found
+		</c:if>
 		<br/>
 		<a href="${pageContext.request.contextPath}/books/byName/form">statistic by book name</a>
-		<br/>
-		<a href="${pageContext.request.contextPath}/books/indep">get only books published after independence</a>
-		<br/>
-		<a href="${pageContext.request.contextPath}/books/popularityForm">find most and least popular Book for period</a>
 		
 	</div>

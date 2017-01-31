@@ -36,6 +36,8 @@ public interface BookService {
 	public List<BookPopularityDTO> getNotPopular(String startDateString, String endDateString);
 	
 	public List<BookPopularityDTO> getPopular(String startDateString, String endDateString);
+	public BookPopularityDTO getLeastPopular(String startDateString, String endDateString);
+	public BookPopularityDTO getMostPopular(String startDateString, String endDateString);
 	
 	public List<Book> getBookInfo(int BookId);
 	

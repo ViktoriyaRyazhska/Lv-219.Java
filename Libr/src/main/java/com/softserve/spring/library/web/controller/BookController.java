@@ -61,5 +61,33 @@ public class BookController {
 	        return new ModelAndView("bookResult", "res", new ArrayList<ByBookNameStatisticDTO>(bs.getStatistic(book)));
 
 	    }
+	 
+		@RequestMapping(value = { "/indep" }, method = RequestMethod.GET)
+		public ModelAndView booksIndep() {
+			ModelAndView mav = new ModelAndView("bookIndap");
+			List<Book> books = bs.booksIndependanceInstances();
+			mav.addObject("books", books);
+			return mav;
+		}
 
+		
+		@RequestMapping(value = { "/popularityForm" }, method = RequestMethod.GET)
+	    public String showPopularityForm(ModelMap model) {
+	        return "popularityForm";
+	    }
+		
+		 @RequestMapping(value = "/popularity/result", method = RequestMethod.POST)
+		    public ModelAndView getPopular(@RequestParam String startDate,
+		    		@RequestParam String endDate, ModelMap model) {
+//			 System.out.println(startDate);
+//			 System.out.println(endDate);
+//			 String formatedStartDate = startDate.replaceAll("", replacement)
+
+			ModelAndView modelAndView = new ModelAndView("popularityResult");
+			modelAndView.addObject("mostPopular", bs.getMostPopular(startDate, endDate));
+			modelAndView.addObject("leastPopular", bs.getLeastPopular(startDate, endDate));
+			
+		        return modelAndView;
+
+		    }
 }

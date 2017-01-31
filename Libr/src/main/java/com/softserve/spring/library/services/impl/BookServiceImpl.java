@@ -76,7 +76,7 @@ public class BookServiceImpl implements BookService {
 	}
 	
 	public List<Book> booksIndependanceInstances() {
-		List<Book> independentBook = bookDAO.booksIndependanceInstances();
+		List<Book> independentBook = bookDAO.booksPublishedInUkraine();
 		return independentBook;
 	}
 	

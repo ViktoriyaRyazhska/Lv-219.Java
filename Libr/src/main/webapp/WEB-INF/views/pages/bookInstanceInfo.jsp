@@ -4,6 +4,7 @@
 <div style="max-width: 800px; margin-top: 100px; margin-bottom: 100px">
 	
 	<h2>Info for BookInstance with id = <c:out value="${biObj.id}" /></h2>
+	<p>Book name : <c:out value="${biObj.book.name}" /> </p>
 	
 		<table>
 			<thead>

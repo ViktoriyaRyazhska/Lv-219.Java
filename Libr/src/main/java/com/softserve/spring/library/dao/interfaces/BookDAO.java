@@ -23,7 +23,7 @@ public interface BookDAO extends GenericDAO<Book, Integer> {
 	
 	public List<Book> bookByCoAuthor(int i);
 	
-	public List<Book> booksIndependanceInstances();
+	public List<Book> booksPublishedInUkraine();
 	
 	public List<BookPopularityDTO> getPopular(String startDate, String endDate);
 	
