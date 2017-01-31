@@ -1,6 +1,6 @@
 <nav >
 	<a href="${pageContext.request.contextPath}/"><img class="logo"
-		src="${pageContext.request.contextPath}/static/img/Linux-icon.png"></a>
+		src="${pageContext.request.contextPath}/static/img/logo.png"></a>
 	<ul>
 		 
 			<li >
@@ -8,7 +8,7 @@
 			</li>
 			
 			 <li> <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Client
+            <button class="btn btn-primary dropdown-toggle my" type="button" data-toggle="dropdown"> Client
             <span class="caret"></span></button>
 		    <ul class="dropdown-menu">
 			<li><a href="${pageContext.request.contextPath}/clientForm1">Reserve Hotel</a> </li>
@@ -56,6 +56,8 @@
 			
 			</ul>
 		
-
 	</ul>
+	
+	<img class="travel"
+		src="${pageContext.request.contextPath}/static/img/travel.png">
 </nav>
