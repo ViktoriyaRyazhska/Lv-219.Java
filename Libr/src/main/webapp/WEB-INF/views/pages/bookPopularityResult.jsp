@@ -4,7 +4,7 @@
 <div style="max-width: 800px; margin-top: 100px; margin-bottom: 100px">
 	
 
-
+<c:if test="${ mostPopular ne null}">
 		<table>
 			<thead>
 				<tr>
@@ -32,7 +32,11 @@
 				
 			</tr>
 		</table>
-
+		</c:if>
+<c:if test="${ mostPopular eq null}">
+<c:out value="no books found for that period" />
+<a href="${pageContext.request.contextPath}/books/popularityForm">TRY AGAIN</a>
+</c:if>
 	<br />
 
 </div>
