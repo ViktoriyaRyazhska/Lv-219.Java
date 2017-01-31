@@ -18,64 +18,78 @@ import com.softserve.edu.service.HotelService;
 @Controller
 public class HotelController {
 
-    @Autowired
-    private HotelService hotelService;
+	@Autowired
+	private HotelService hotelService;
 
-    @RequestMapping(value = { "/hotelForm" }, method = RequestMethod.GET)
-    public String showForm(ModelMap model) {
-        return "hotelForm";
-    }
+	@RequestMapping(value = { "/hotelForm" }, method = RequestMethod.GET)
+	public String showForm(ModelMap model) {
+		return "hotelForm";
+	}
 
-    @RequestMapping(value = { "/hotelForm2" }, method = RequestMethod.GET)
-    public String showForm2(ModelMap model) {
-        return "hotelForm2";
-    }
+	@RequestMapping(value = { "/hotelForm2" }, method = RequestMethod.GET)
+	public String showForm2(ModelMap model) {
+		return "hotelForm2";
+	}
 
-    @RequestMapping(value = { "/hotelForm3" }, method = RequestMethod.GET)
-    public String showForm3(ModelMap model) {
-        return "hotelForm3";
-    }
+	@RequestMapping(value = { "/hotelForm3" }, method = RequestMethod.GET)
+	public String showForm3(ModelMap model) {
+		return "hotelForm3";
+	}
+	
+	@RequestMapping(value = { "/hotelForm4" }, method = RequestMethod.GET)
+	public String showForm4(ModelMap model) {
+		return "hotelForm4";
+	}
 
-    @RequestMapping(value = "/hotels", method = RequestMethod.POST)
-    public ModelAndView getByCity(@RequestParam String city, ModelMap model) {
+	@RequestMapping(value = "/hotels", method = RequestMethod.POST)
+	public ModelAndView getByCity(@RequestParam String city, ModelMap model) {
 
-        return new ModelAndView("hotels", "set", new HashSet<>(hotelService.findHotels(city)));
+		return new ModelAndView("hotels", "set", new HashSet<>(hotelService.findHotels(city)));
 
-    }
+	}
 
-    @RequestMapping(value = "/freeRooms", method = RequestMethod.POST)
-    public ModelAndView countOfFreeRooms(@RequestParam String hotel, @RequestParam String date, ModelMap model) {
+	@RequestMapping(value = "/freeRooms", method = RequestMethod.POST)
+	public ModelAndView countOfFreeRooms(@RequestParam String hotel, @RequestParam String date, ModelMap model) {
 
-        Date utilDate = null;
-        try {
-            SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
-            utilDate = dateFormatter.parse(date);
-        } catch (ParseException e) {
-            System.out.println("Parsing error");
+		Date utilDate = null;
+		try {
+			SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
+			utilDate = dateFormatter.parse(date);
+		} catch (ParseException e) {
+			System.out.println("Parsing error");
 
-        }
-        model.addAttribute("date", date);
-        model.addAttribute("count", hotelService.findCountOfFreeRooms(hotel, utilDate));
-        return new ModelAndView("freeRooms", model);
+		}
+		model.addAttribute("date", date);
+		model.addAttribute("count", hotelService.findCountOfFreeRooms(hotel, utilDate));
+		return new ModelAndView("freeRooms", model);
 
-    }
+	}
 
-    @RequestMapping(value = "/avaliableHotels", method = RequestMethod.POST)
+	@RequestMapping(value = "/avaliableHotels", method = RequestMethod.POST)
 
-    public ModelAndView avaliableByCityAndDate(@RequestParam String city, @RequestParam String date, ModelMap model) {
+	public ModelAndView avaliableByCityAndDate(@RequestParam String city, @RequestParam String date, ModelMap model) {
 
-        Date utilDate = null;
-        try {
-            SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
-            utilDate = dateFormatter.parse(date);
-        } catch (ParseException e) {
-            System.out.println("Parsing error");
+		Date utilDate = null;
+		try {
+			SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
+			utilDate = dateFormatter.parse(date);
+		} catch (ParseException e) {
+			System.out.println("Parsing error");
 
-        }
-        model.addAttribute("date", date);
-        model.addAttribute("list", hotelService.findFree(city, utilDate));
-        return new ModelAndView("avaliableHotels", model);
+		}
+		model.addAttribute("date", date);
+		model.addAttribute("list", hotelService.findFree(city, utilDate));
+		return new ModelAndView("avaliableHotels", model);
 
-    }
+	}
+
+	@RequestMapping(value = "/hotelStatistic", method = RequestMethod.POST)
+
+	public ModelAndView avaliableByCityAndDate(@RequestParam String hotel, ModelMap model) {
+		model.addAttribute("hotelName", hotel);
+		model.addAttribute("avgTimeOfBooking", hotelService.averageTimeOfBooking(hotel));
+		model.addAttribute("countOfClients", hotelService.findCountOfClients(hotel));
+		return new ModelAndView("hotelStatistic", model);
+	}
 
 }

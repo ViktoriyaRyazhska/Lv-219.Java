@@ -52,6 +52,11 @@
        <put-attribute name="body" value="/WEB-INF/views/pages/hotel/hotelForm3.jsp" />  
    </definition>  
    
+      <!-- Hotel Form4 Page -->
+   <definition name="hotelForm4" extends="base-definition">  
+       <put-attribute name="title" value="Hotel Form" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/hotel/hotelForm4.jsp" />  
+   </definition>  
    
    <!-- Hotels Page -->
    <definition name="hotels" extends="base-definition">  
@@ -77,6 +82,22 @@
        <put-attribute name="body" value="/WEB-INF/views/pages/visa/visaForm.jsp" />  
    </definition> 
    
+       <!-- Client Form -->
+   <definition name="clientForm" extends="base-definition">  
+       <put-attribute name="title" value="Client Form" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/client/clientForm.jsp" />  
+   </definition> 
+   
+          <!-- Client Statistic -->
+   <definition name="clientStatistic" extends="base-definition">  
+       <put-attribute name="title" value="Client Statistic" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/client/clientStatistic.jsp" />  
+   </definition> 
+             <!-- Hotel Statistic -->
+   <definition name="hotelStatistic" extends="base-definition">  
+       <put-attribute name="title" value="Hotel Statistic" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/hotel/hotelStatistic.jsp" />  
+   </definition> 
    
     <!-- Visa Form2 Page -->
    <definition name="visaForm2" extends="base-definition">  

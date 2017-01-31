@@ -33,6 +33,12 @@
 			
 			</ul>
 			
+			 <li>  Statistic
+		    <ul>
+			<li><a href="${pageContext.request.contextPath}/clientForm">Client Statistic</a> </li>
+			<li><a href="${pageContext.request.contextPath}/hotelForm4">Hotel Statistic</a> </li>
+			
+			</ul>
 			
             </li>
 		
