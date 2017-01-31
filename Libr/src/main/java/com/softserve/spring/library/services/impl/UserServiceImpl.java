@@ -97,6 +97,11 @@ public class UserServiceImpl implements UserService {
 		return userDAO.getAllElements();
 	}
 
+	@Override
+	public double getAvgAgeByAuthor(String authorName) {
+		return userDAO.getAvgAgeByAuthor(authorName);
+	}
+
 }
 
 

@@ -22,6 +22,7 @@
 
     </table>
   </c:if>
+  <a href="${pageContext.request.contextPath}/users/byAuthorName">get avg user age by author name</a>
 </div>
 
 

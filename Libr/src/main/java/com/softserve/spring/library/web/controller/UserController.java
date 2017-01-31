@@ -62,7 +62,21 @@ public class UserController {
 
 	    }
 	
+	 @RequestMapping(value = { "/byAuthorName" }, method = RequestMethod.GET)
+	    public String showByAuthorForm(ModelMap model) {
+	        return "byAuthorForm";
+	    }
 
+	 @RequestMapping(value = "/byAuthorName", method = RequestMethod.POST)
+	    public ModelAndView avgUserAgeByAuthor(@RequestParam String author,
+	    		 ModelMap model) {
+
+		ModelAndView modelAndView = new ModelAndView("userAgeByAuthorResult");
+		modelAndView.addObject("age", us.getAvgAgeByAuthor(author));
+		modelAndView.addObject("name", author);
+	        return modelAndView;
+
+	    }
 	
 
 }

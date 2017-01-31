@@ -178,4 +178,25 @@ public class UserDAOImpl extends GenericDAOImpl<User, Integer> implements UserDA
 
 		return res;
 	}
+	
+	@Override
+	public double getAvgAgeByAuthor(String authorName) {
+		Session session = null;
+		String queryString = "select (AVG(UNIX_TIMESTAMP()-" + "UNIX_TIMESTAMP(user.birthDate)))/31557600 "
+				+ "from User user " + "where user.id in " + "(select distinct rs.user.id from "
+				+ "ReadSession rs inner join rs.user inner join rs.bookInstance inner join rs.bookInstance.book "
+				+ "inner join rs.bookInstance.book.author as au "
+				+ "where au.name = :authorName)";
+		Double res;
+
+		session = sessionFactory.getCurrentSession();
+		@SuppressWarnings("unchecked")
+		Query<Double> query = session.createQuery(queryString);
+		query.setParameter("authorName", authorName);
+		res = query.getSingleResult();
+		if (res == null) {
+			res = new Double(0.0);
+		}
+		return res;
+	}
 }

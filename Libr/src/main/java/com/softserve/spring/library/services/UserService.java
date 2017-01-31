@@ -30,6 +30,8 @@ public interface UserService {
 	public List<Book> booksWasNotReturned(Integer userId);
 	public UserStatisticDTO getStatistic(String startDate, String endDate);
 	
+	public double getAvgAgeByAuthor(String authorName);
+	
 	public void addUser(User user);
 	
 	public void updateUser(User user);

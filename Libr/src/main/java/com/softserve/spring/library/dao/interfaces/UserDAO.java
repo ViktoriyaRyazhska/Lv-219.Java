@@ -12,6 +12,7 @@ public interface UserDAO extends GenericDAO<User, Integer> {
 	public double getAvgTimeSinceRegistration();
 	public double avgRequestByPeriod(String startDate, String endDate);
 	public double getAvgAgeByBook(Integer bookId);
+	public double getAvgAgeByAuthor(String authorName);
 	public double getAvgAgeByBookInstance(Integer bookInstanceId);
 
 	public List<User> getDebtors();

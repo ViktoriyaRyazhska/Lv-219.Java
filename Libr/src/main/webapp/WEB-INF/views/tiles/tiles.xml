@@ -116,6 +116,20 @@
        <put-attribute name="body" value="/WEB-INF/views/pages/userStatisticResult.jsp" />  
    </definition> 
    
+   
+    <!--user age byAuthorForm form Page-->
+      <definition name="byAuthorForm" extends="base-definition">  
+       <put-attribute name="title" value="User avg age by Author form" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/byAuthorForm.jsp" />  
+   </definition> 
+   
+   
+   <!--user age byAuthorForm form Page-->
+      <definition name="userAgeByAuthorResult" extends="base-definition">  
+       <put-attribute name="title" value="User avg age by Author Result" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/byAuthorResult.jsp" />  
+   </definition> 
+   
    <!-- Contact-us Page -->
    <definition name="contactus" extends="base-definition">  
        <put-attribute name="title" value="Contact Us" />  
