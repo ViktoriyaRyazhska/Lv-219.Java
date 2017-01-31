@@ -8,6 +8,7 @@
       <thead>
       <tr><th>Name</th><th>Author</th><th>Co-author</th></tr>
       </thead>
+
         <c:forEach items="${authors}" var="current">
             <tr>
               <td><c:out value="${current.name}"/>
@@ -18,6 +19,7 @@
               </td>
             </tr>
         </c:forEach>
+
     </table>
   </c:if>
 </div>

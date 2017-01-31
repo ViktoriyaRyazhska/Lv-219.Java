@@ -33,6 +33,7 @@ public class AuthorController {
     @RequestMapping(value = { "/author/{authorId}" })
     public ModelAndView booksByAuthor(@PathVariable("authorId") int id) {
         ModelAndView mav = new ModelAndView("booksByAuthor");
+        mav.addObject("author", authorService.getAuthorById(id));
         mav.addObject("books", bookService.findBookByAuthor(id));
         return mav;
     }
@@ -40,6 +41,7 @@ public class AuthorController {
     @RequestMapping(value = {"/coauthor/{authorId}"})
     public ModelAndView booksByCoAuthor(@PathVariable("authorId") int id) {
         ModelAndView mav = new ModelAndView("booksByCoauthor");
+        mav.addObject("author", authorService.getAuthorById(id));
         mav.addObject("books", bookService.bookByCoAuthor(id));
         return mav;
     }

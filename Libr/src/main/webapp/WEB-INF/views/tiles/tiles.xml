@@ -77,7 +77,20 @@
    <definition name="bookIndap" extends="base-definition">  
        <put-attribute name="title" value="Books published after Independence" />  
        <put-attribute name="body" value="/WEB-INF/views/pages/booksIndap.jsp" />  
-   </definition> 
+   </definition>
+
+       <!-- BooksByAuthor Page -->
+    <definition name="booksByAuthor" extends="base-definition">
+        <put-attribute name="title" value="List of books by certain author" />
+        <put-attribute name="body" value="/WEB-INF/views/pages/booksByAuthor.jsp" />
+    </definition>
+
+    <!-- BooksByCoauthor Page -->
+    <definition name="booksByCoauthor" extends="base-definition">
+        <put-attribute name="title" value="List of books by certain author" />
+        <put-attribute name="body" value="/WEB-INF/views/pages/booksByCoauthor.jsp" />
+    </definition>
+
    
    <!-- most popular/unpopular by period form Page-->
       <definition name="popularityForm" extends="base-definition">  
