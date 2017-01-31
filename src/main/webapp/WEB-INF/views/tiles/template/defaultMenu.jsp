@@ -1,33 +1,41 @@
-<nav>
+<nav >
 	<a href="${pageContext.request.contextPath}/"><img class="logo"
 		src="${pageContext.request.contextPath}/static/img/Linux-icon.png"></a>
 	<ul>
-		
-			<li>
+		 
+			<li >
 			<a href="${pageContext.request.contextPath}/">Home</a>	
 			</li>
 		   	   
-		    <li>  Cities
-		    <ul>
+		    <li> <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Cities
+            <span class="caret"></span></button>
+		    <ul class="dropdown-menu">
 			<li><a href="${pageContext.request.contextPath}/cities">Show cities</a> </li>
 			</ul>
             </li>           
-            <li>  Countries
-		    <ul>
+            <li> <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Countries
+            <span class="caret"></span></button>
+		    <ul class="dropdown-menu">
 			<li><a href="${pageContext.request.contextPath}/countries">Show countries</a> </li>
 			</ul>
             </li>
                        
-             <li>  Hotels
-		    <ul>
+             <li>  <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">   Hotels
+			<span class="caret"></span></button>
+		    <ul class="dropdown-menu">
 			<li><a href="${pageContext.request.contextPath}/hotelForm">Find by city</a> </li>
 			<li><a href="${pageContext.request.contextPath}/hotelForm2">Count of Free Rooms</a> </li>
 			<li><a href="${pageContext.request.contextPath}/hotelForm3">Avaliable by City and Date </a> </li>
 			</ul>
 			
 			
-			 <li>  Visa
-		    <ul>
+			 <li> <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Visa
+			<span class="caret"></span></button>
+		    <ul class="dropdown-menu">
 			<li><a href="${pageContext.request.contextPath}/visaForm">Visas by Client</a> </li>
 			<li><a href="${pageContext.request.contextPath}/visaForm2">Count Of Visas By Country</a> </li>
 			
