@@ -2,7 +2,8 @@
 	<label for="country">Country:</label>
 	<input type="text" id="country" name="country" placeholder="Enter Country" /> <br />	
     <br />	
-	<input type="submit" value="send" />
+    <br />
+	<input type="submit" value="Send" />
 	
 </form>
 

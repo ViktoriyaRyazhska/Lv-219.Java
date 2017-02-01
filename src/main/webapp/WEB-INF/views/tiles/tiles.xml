@@ -76,6 +76,12 @@
        <put-attribute name="body" value="/WEB-INF/views/pages/hotel/avaliableHotels.jsp" />  
    </definition>  
    
+   <!-- Reverse Hotel Page -->
+   <definition name="reserveHotel" extends="base-definition">  
+       <put-attribute name="title" value="Reserve Hotel" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/client/reserveHotel.jsp" />  
+   </definition>  
+   
     <!-- Visa Form Page -->
    <definition name="visaForm" extends="base-definition">  
        <put-attribute name="title" value="Visa Form" />  

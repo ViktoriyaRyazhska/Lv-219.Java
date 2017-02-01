@@ -20,10 +20,9 @@
 			</tr>
 		</c:forEach>
 	</table>
-
+	
 	<h3>Client visited ${list.size()} countries</h3>
 	<table>
-
 		<th>Country</th>
 		<c:forEach items="${list}" var="country">
 			<tr>

@@ -76,7 +76,6 @@ public class HotelController {
     }
 
     @RequestMapping(value = "/hotelStatistic", method = RequestMethod.POST)
-
     public ModelAndView hotelStatistic(@RequestParam String hotel, ModelMap model) {
         model.addAttribute("hotelName", hotel);
         model.addAttribute("avgTimeOfBooking", hotelService.averageTimeOfBooking(hotel));

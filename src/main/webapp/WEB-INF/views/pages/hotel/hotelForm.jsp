@@ -4,6 +4,6 @@
        
     -->
 	<input type="text" id="city" name="city" placeholder="Enter city" /> <br />
-	<br /> <input type="submit" value="send" />
+	<br /> <input type="submit" value="Send" />
 
 </form>
