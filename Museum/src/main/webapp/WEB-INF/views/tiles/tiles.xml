@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">  
+
+<tiles-definitions>  
+ 
+   <!-- Base Definition -->
+   <definition name="base-definition" 
+       template="/WEB-INF/views/tiles/layouts/defaultLayout.jsp">  
+       <put-attribute name="title" value="" />  
+       <put-attribute name="header" value="/WEB-INF/views/tiles/template/defaultHeader.jsp" />  
+       <put-attribute name="menu" value="/WEB-INF/views/tiles/template/defaultMenu.jsp" />  
+       <put-attribute name="body" value="" />  
+       <put-attribute name="footer" value="/WEB-INF/views/tiles/template/defaultFooter.jsp" />  
+   </definition>  
+ 
+   <!-- Home Page -->
+   <definition name="home" extends="base-definition">  
+       <put-attribute name="title" value="Welcome" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/home.jsp" />  
+   </definition>
+   
+   <!-- Exhibits Statistic Page -->
+   <definition name="exhibitsStatistic" extends="base-definition">  
+       <put-attribute name="title" value="Exhibits" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/exhibits/exhibitsStatistic.jsp" />  
+   </definition>
+   
+   <!-- Exhibits Page -->
+   <definition name="showExhibits" extends="base-definition">  
+       <put-attribute name="title" value="Exhibits" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/exhibits/showExhibits.jsp" />  
+   </definition>
+   
+   <!-- Exhibit Form1 Page -->
+   <definition name="exhibitForm1" extends="base-definition">  
+       <put-attribute name="title" value="Exhibit Form" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/exhibits/exhibitForm1.jsp" />  
+   </definition>
+   
+   <!-- Exhibit Form2 Page -->
+   <definition name="exhibitForm2" extends="base-definition">  
+       <put-attribute name="title" value="Exhibit Form" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/exhibits/exhibitForm2.jsp" />  
+   </definition>
+   
+   <!-- Exhibits Page -->
+   <definition name="showExhibitsByAuthor" extends="base-definition">  
+       <put-attribute name="title" value="Exhibits" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/exhibits/showExhibitsByAuthor.jsp" />  
+   </definition>
+   
+   <!-- Exhibits By Worker Page -->   
+   <definition name="showExhibitsByWorker" extends="base-definition">  
+       <put-attribute name="title" value="Exhibits" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/exhibits/showExhibitsByWorker.jsp" />  
+   </definition>
+   
+   <!-- Exhibits By Hall Page -->
+   <definition name="showExhibitsByHall" extends="base-definition">  
+       <put-attribute name="title" value="Exhibits" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/exhibits/showExhibitsByHall.jsp" />  
+   </definition>  
+   
+   <!-- Workers Form Page -->
+   <definition name="workerForm" extends="base-definition">  
+       <put-attribute name="title" value="Workers" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/workers/workerForm.jsp" />  
+   </definition>
+   
+   <!-- Workers Page -->
+   <definition name="workers" extends="base-definition">  
+       <put-attribute name="title" value="Workers" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/workers/showWorkers.jsp" />  
+   </definition>
+   
+   <!-- Schedule Form1 Page -->
+   <definition name="scheduleForm1" extends="base-definition">  
+       <put-attribute name="title" value="Schedule" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/schedule/scheduleForm1.jsp" />  
+   </definition>
+   
+   <!-- Schedule Form2 Page -->
+   <definition name="scheduleForm2" extends="base-definition">  
+       <put-attribute name="title" value="Schedule" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/schedule/scheduleForm2.jsp" />  
+   </definition>
+   
+   <!-- Schedule Form3 Page -->
+   <definition name="scheduleForm3" extends="base-definition">  
+       <put-attribute name="title" value="Schedule" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/schedule/scheduleForm3.jsp" />  
+   </definition>
+   
+   <!-- Schedule Page -->
+   <definition name="showExcursion" extends="base-definition">  
+       <put-attribute name="title" value="Schedule" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/schedule/showExcursion.jsp" />  
+   </definition>
+   
+   <!-- Schedule Guide Statistics Page -->
+   <definition name="showGuidesStatistics" extends="base-definition">  
+       <put-attribute name="title" value="Schedule" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/schedule/showGuidesStatistics.jsp" />  
+   </definition>
+   
+   <!-- Schedule Count Of Excursions Page -->
+   <definition name="countOfExcursions" extends="base-definition">  
+       <put-attribute name="title" value="Schedule" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/schedule/countOfExcursions.jsp" />  
+   </definition>
+ 
+</tiles-definitions>
