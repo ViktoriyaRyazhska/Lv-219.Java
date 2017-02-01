@@ -31,7 +31,8 @@ public class ClientDaoImpl extends GenericDaoImpl<Client> implements ClientDao {
         query.setParameter("fName", firstName);
         query.setParameter("lName", lastName);
         List<Client> list = query.list();
-        client = list.get(0);
+        if (list.size() > 0)
+            client = list.get(0);
         return client;
     }
 

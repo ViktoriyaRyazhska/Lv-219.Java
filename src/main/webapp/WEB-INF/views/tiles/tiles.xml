@@ -110,10 +110,8 @@
        <put-attribute name="body" value="/WEB-INF/views/pages/visa/visaForm2.jsp" />  
    </definition> 
    
-   
-   
-   
-   
+ 
+  
    <!-- Visa By Client Page -->
    <definition name="visaByClient" extends="base-definition">  
        <put-attribute name="title" value="Visas of Client" />  
@@ -125,12 +123,23 @@
    <definition name="countOfVisas" extends="base-definition">  
        <put-attribute name="title" value="Visas of Client" />  
        <put-attribute name="body" value="/WEB-INF/views/pages/visa/CountOfVisasByCountry.jsp" />  
+   </definition>
+   
+   
+   <!-- Null Pointer error Page -->
+   <definition name="nullPointerError" extends="base-definition">  
+       <put-attribute name="title" value="Error" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/error/NullPointer.jsp" />  
+   </definition> 
+   
+   
+   <!-- Parse error Page -->
+   <definition name="parseError" extends="base-definition">  
+       <put-attribute name="title" value="Error" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/error/ParseError.jsp" />  
    </definition>  
    
    
    
    
-   
-      
- 
 </tiles-definitions>

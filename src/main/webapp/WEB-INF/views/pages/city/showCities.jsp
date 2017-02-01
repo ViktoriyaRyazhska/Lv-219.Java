@@ -6,12 +6,12 @@
 <div>
 	
 	<table>
-	    <th>Id</th>
-		<th>CityName</th>
+	  
+		<th>City</th>
 		<c:forEach items="${set}" var="city">
 			<tr>
 				
-				<td><c:out value="${city.id}" />
+				
 				<td><c:out value="${city.name}" />
 				<td>
 			</tr>

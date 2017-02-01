@@ -33,7 +33,8 @@ public class HotelDaoImpl extends GenericDaoImpl<Hotel> implements HotelDao {
         Query query = sessionFactory.getCurrentSession().createQuery("from City where name =:city");
         query.setParameter("city", city);
         List<City> list = query.list();
-        hotels = list.get(0).getHotels();
+        if (list.size() > 0)
+            hotels = list.get(0).getHotels();
         return hotels;
     }
 
@@ -91,7 +92,7 @@ public class HotelDaoImpl extends GenericDaoImpl<Hotel> implements HotelDao {
                         + "JOIN client_tours ct ON br.client_tour_id=ct.client_tour_id "
                         + " JOIN hotel_rooms r on br.room_id=r.room_id " + "  JOIN hotels h on r.hotel_id=h.hotel_id "
                         + " WHERE h.name= :hotel");
-        query.setParameter("hotel", "Hotel Metropol");
+        query.setParameter("hotel", hotel);
         List list = query.list();
         days = ((Number) list.get(0)).intValue();
         return days;

@@ -24,7 +24,8 @@ public class VisaDaoImpl extends GenericDaoImpl<Visa> implements VisaDao {
         query.setParameter("fName", firstName);
         query.setParameter("lName", lastName);
         List<Client> list = query.list();
-        visas = list.get(0).getVisas();
+        if (list.size() > 0)
+            visas = list.get(0).getVisas();
         return visas;
     }
 

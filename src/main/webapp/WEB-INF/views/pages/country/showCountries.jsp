@@ -6,12 +6,11 @@
 <div>
 	
 	<table>
-	    <th>Id</th>
+	    
 		<th>CountryName</th>
 		<c:forEach items="${set}" var="country">
 			<tr>
 				
-				<td><c:out value="${country.id}" />
 				<td><c:out value="${country.name}" />
 				<td>
 			</tr>
